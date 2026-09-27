@@ -1,0 +1,46 @@
+# Carène — dépôt public : le programme seul.
+# Aucun navire, aucune donnée de bord, aucun document de développement.
+
+# les navires et tout ce qui en vient
+/navires/
+/navire/
+/sauvegardes/
+/import_*/
+/assujettissement/
+/_prive/
+
+# le poste : réglages et journaux techniques
+/carene.config.json
+/journaux/
+
+# le développement : documents de travail, tests, outils, exemples
+/docs/decisions.md
+/docs/A_FAIRE.md
+/docs/README.md
+/docs/revue_*.md
+/docs/plans_a_recuperer.md
+/docs/manuel_assujettissement.html
+/docs/propositions_locopias.html
+/tests/
+/tools/
+/examples/
+/captures*/
+/capture_*.png
+
+# verrous et filets de l'écriture protégée
+carene.ouvert.json
+carene.ouvert.json.*.tmp
+carene.verrou
+.carene-ecriture
+*.tmp
+*.bak
+
+# Python, construction, livraisons
+__pycache__/
+*.pyc
+/build/
+/dist/
+/.venv*/
+/livraison/
+*.zip
+*.sha256

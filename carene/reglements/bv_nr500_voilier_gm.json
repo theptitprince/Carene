@@ -1,0 +1,21 @@
+{
+ "format": "carene-reglement",
+ "version_format": 1,
+ "id": "BV_NR500_GM",
+ "titre": "BV NR500 — hauteur métacentrique minimale d'un navire à voile",
+ "texte": "Bureau Veritas, NR500 (règles des yachts et navires à voile), critère de GM retenu au dossier de stabilité approuvé du navire de référence",
+ "version": "telle que citée par le dossier de stabilité approuvé du navire de référence",
+ "statut": "verifie",
+ "verification": "Seuil lu dans le dossier de stabilité approuvé du navire de référence et rejoué sur ses 15 cas.",
+ "applicabilite": {
+  "types": ["cargo", "passagers", "formation", "voilier_traditionnel", "autre"],
+  "propulsion": ["voile", "mixte"],
+  "note": "Navires portant une voilure, classés au Bureau Veritas. Le dossier de stabilité approuvé dit si ce critère s'applique."
+ },
+ "situation": "toujours",
+ "criteres": [
+  {"code": "NR500_GM", "libelle": "GM0 corrigé (NR500 voile)", "brique": "gm",
+   "parametres": {},
+   "seuil": 0.30, "comparaison": ">=", "unite": "m", "reference": "NR500, critère de GM des voiliers"}
+ ]
+}

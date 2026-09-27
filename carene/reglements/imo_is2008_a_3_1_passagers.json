@@ -1,0 +1,53 @@
+{
+ "format": "carene-reglement",
+ "version_format": 1,
+ "id": "IMO_IS2008_A_3_1",
+ "titre": "Code IS 2008 — navires à passagers : gîte due aux passagers et à la giration",
+ "texte": "OMI, résolution MSC.267(85), Code IS 2008, partie A, § 3.1 (navires à passagers)",
+ "version": "MSC.267(85)",
+ "statut": "relu",
+ "verification": "Relue le 24/09/2026 sur le texte officiel (résolution MSC.267(85), PDF de l'OMI) : seuils, formules et paragraphes conformes. Pas encore rejouée sur un dossier de stabilité approuvé.",
+ "applicabilite": {
+  "types": [
+   "passagers",
+   "formation"
+  ],
+  "propulsion": [
+   "moteur",
+   "voile",
+   "mixte"
+  ],
+  "longueur_min_m": 24.0,
+  "note": "Navires à passagers (plus de 12 passagers) ; s'ajoute aux § 2.2 et 2.3, qu'il faut retenir aussi. Le moment des passagers se calcule selon le § 3.1.1 : 75 kg par passager au moins, centre de gravité à 1 m au-dessus du pont debout ou à 0,3 m au-dessus du siège assis, passagers sans bagages regroupés du côté le plus défavorable, sans dépasser 4 personnes par m². La giration demande la vitesse de service (profil du navire)."
+ },
+ "situation": "toujours",
+ "criteres": [
+  {
+   "code": "PAX_REGROUPEMENT",
+   "libelle": "Gîte due au regroupement des passagers sur un bord",
+   "brique": "bras_gite",
+   "parametres": {
+    "moment": "profil:moment_passagers_tm",
+    "loi": "cos"
+   },
+   "seuil": 10.0,
+   "comparaison": "<=",
+   "unite": "deg",
+   "reference": "§ 3.1.1"
+  },
+  {
+   "code": "PAX_GIRATION",
+   "libelle": "Gîte en giration",
+   "brique": "bras_gite",
+   "parametres": {
+    "moment": "giration",
+    "coefficient": 0.2,
+    "loi": "cos"
+   },
+   "seuil": 10.0,
+   "comparaison": "<=",
+   "unite": "deg",
+   "reference": "§ 3.1.2 (M_R = 0,200 · v0²/L_WL · Δ · (KG − d/2), en kN·m)"
+  }
+ ]
+}

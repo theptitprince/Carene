@@ -1,0 +1,35 @@
+{
+ "format": "carene-reglement",
+ "version_format": 1,
+ "id": "IMO_IS2008_B_2_1",
+ "titre": "Code IS 2008 — navires de pêche : hauteur métacentrique minimale",
+ "texte": "OMI, résolution MSC.267(85), Code IS 2008, partie B, § 2.1.3 (navires de pêche, critères généraux recommandés)",
+ "version": "MSC.267(85)",
+ "statut": "relu",
+ "verification": "Relue le 24/09/2026 sur le texte officiel (résolution MSC.267(85), PDF de l'OMI) : seuils, formules et paragraphes conformes. Pas encore rejouée sur un dossier de stabilité approuvé.",
+ "applicabilite": {
+  "types": [
+   "peche"
+  ],
+  "propulsion": [
+   "moteur",
+   "voile",
+   "mixte"
+  ],
+  "longueur_min_m": 24.0,
+  "note": "Navires de pêche pontés de 24 m et plus. Les § 2.2.1 à 2.2.3 de la partie A s'appliquent (retenir le § 2.2) ; le GM y est porté à 0,35 m pour un navire à un pont. Avec une superstructure complète, ou à partir de 70 m, l'Administration peut l'abaisser, jamais sous 0,15 m : le seuil propre au navire se règle alors dans son dossier. Le critère simplifié des moins de 30 m (§ 2.1.5) ne sert que sans pantocarènes : Carène en a."
+ },
+ "situation": "toujours",
+ "criteres": [
+  {
+   "code": "PECHE_GM",
+   "libelle": "GM corrigé, navire de pêche à un pont",
+   "brique": "gm",
+   "parametres": {},
+   "seuil": 0.35,
+   "comparaison": ">=",
+   "unite": "m",
+   "reference": "partie B, § 2.1.3.1"
+  }
+ ]
+}

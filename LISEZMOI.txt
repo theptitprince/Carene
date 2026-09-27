@@ -1,0 +1,311 @@
+CARÈNE v3.5.4 — chargement et stabilité
+=======================================
+ETDEL © 2026. Tous droits réservés.
+Carène est une aide au chargement et à la stabilité : ni certifié, ni
+réglementaire. Le dossier de stabilité approuvé fait foi.
+
+
+NOUVEAU EN v3.5.4 : LES SIGNALEMENTS PASSENT PAR GITHUB (D-91)
+  Aide > Signaler un problème… ouvre un nouveau signalement dans les
+  « Issues » de Carène sur GitHub (https://github.com/theptitprince/Carene/issues), titre
+  et corps remplis, au lieu d'un courriel. Le dépôt est public : le nom du
+  navire et le chemin de son dossier sont masqués par défaut.
+
+NOUVEAU EN v3.5.3 : DEUX CORRECTIONS DU CATALOGUE ET DES TABLEAUX (D-89, D-90)
+  Dans les tableaux, une cellule vide affiche « — » : ce tiret s'efface
+  désormais quand on saisit la cellule, au lieu de rester devant la valeur
+  tapée (catalogue, manifeste, relevé des capacités, point, journal). Et un
+  type ajouté ou modifié au catalogue apparaît tout de suite dans les colis
+  standards de la fenêtre « ajouter un lot », sans la rouvrir.
+
+NOUVEAU EN v3.5.2 : LE DÉPLACEMENT D'UN GROUPE DE COLIS (D-88)
+  Un groupe de colis choisi au cadre et glissé d'un bloc s'aimante
+  désormais aux voisins et aux parois, comme un colis seul. Et il ne se
+  ramasse plus en piles : les colis d'un même lot s'empilaient l'un sur la
+  place que l'autre n'avait pas encore quittée. Après le déplacement, la
+  sélection reste le groupe.
+
+NOUVEAU EN v3.5.1 : LA CAPACITÉ CHOISIE S'ALLUME DANS LA VUE 3D (D-87)
+  Dans la vue Capacités, cliquer une ligne du tableau — ou la capacité
+  elle-même dans l'isométrie — l'allume en orange, devant les autres, et la
+  garde allumée pendant qu'on relève les sondes. Cela vaut aussi pour les
+  soutes et ballasts non tracés sur plan (dessin reconstitué depuis les
+  tables), qui ne se choisissaient pas jusqu'ici.
+
+NOUVEAU EN v3.5.0 : LES MISES À JOUR PAR LE SERVEUR DU BORD (D-85)
+  Carène cherche ses mises à jour sur le serveur du bord
+  (http://theptitprince.fr/carene pour l'instant) : elle y lit
+  derniere.json, télécharge le zip du programme seul et vérifie son
+  empreinte SHA-256, obligatoire. Aide > Serveur des mises à jour… donne
+  l'adresse, et l'identifiant et le mot de passe si le dossier est protégé
+  par .htaccess : Windows les garde, jamais un fichier. Tant que l'adresse
+  est en http://, ils passent en clair : Carène le dit. Comment préparer le
+  serveur : docs\serveur_mise_a_jour.md.
+
+NOUVEAU EN v3.4.0 : LES RÉGLEMENTATIONS RELUES SUR LE TEXTE OFFICIEL (D-84)
+  Les trois réglementations « à relire » (passagers § 3.1, bois en pontée
+  § 3.3, pêche partie B § 2.1) ont été relues sur la résolution MSC.267(85)
+  de l'OMI. Deux paragraphes étaient mal numérotés, et deux critères météo
+  particuliers manquaient : ils sont ajoutés (bois en pontée : limite du
+  livet levée ; pêche de 24 à 45 m : pression du vent selon la hauteur).
+  Leur statut est désormais « relue » : conforme au texte, pas encore
+  rejouée sur un dossier approuvé. La classe IMDG « 1.4S » est reconnue.
+
+NOUVEAU EN v3.3.0 : LES CALES IMDG (D-83)
+  Dans l'éditeur de plans, chaque cale dit les classes IMDG qu'elle admet
+  (« 3, 9 », « toutes », ou rien). Le manifeste a une colonne IMDG. Le
+  répartiteur n'envoie une marchandise dangereuse que dans une cale qui
+  l'admet ; posée ailleurs à la main, c'est un défaut sur le plan ; le
+  rapport liste les marchandises dangereuses et leur cale. À faire de votre
+  côté : renseigner la cale avant supérieure du navire d'exemple (3030),
+  seule cale du document de conformité (Navire > Créer ou modifier le navire > Plans,
+  fiche de la cale).
+
+NOUVEAU EN v3.2.0 : LA COHÉRENCE DES TABLES À L'IMPORT (D-82)
+  À la création d'un navire, chaque table est relue avec ce que la physique
+  lui impose : déplacement qui croît, densité des tables constante, TPC,
+  KB + BM = KM, assiette AR − AV, doublons ; mêmes angles de pantocarènes
+  partout, KN cohérents avec KM ; jauges de 0 à 100 %, croissantes, à la
+  bonne densité. Les constats s'affichent dans l'étape concernée et, en
+  entier, dans l'étape « Contrôle ». Un angle de pantocarène manquant ne
+  fait plus tomber le calcul ; « 1.129,24 » et « nan » se lisent juste.
+  Le navire d'exemple passe tout. Rien à copier dans votre navire.
+
+NOUVEAU EN v3.1.0 : LES TIRANTS D'EAU DES DEUX BORDS (D-80)
+  Chargement > Tirants d'eau relevés (F7) : la case « Relevé des deux bords »
+  ajoute une rangée tribord (les premières valeurs sont alors celles de
+  bâbord). Facultatif : un seul bord suffit, navire droit. Avec les deux,
+  Carène prend la moyenne, qui efface une gîte au moment de la lecture, et
+  dit la gîte apparente. Le rapport imprime les deux lectures. Rien à copier
+  dans votre navire.
+
+NOUVEAU EN v3.0.0 : LA BIBLIOTHÈQUE DES RÉGLEMENTATIONS (D-79)
+  Les réglementations de stabilité à l'état intact ne sont plus écrites dans
+  le programme : chacune est un fichier de carene\reglements\ (texte, version,
+  statut, critères avec leur paragraphe). À la création du navire, l'étape
+  « Critères » demande le profil (type, propulsion, vitesse, cargaisons) et
+  propose celles qui s'appliquent ; on coche. Huit réglementations livrées :
+  Code IS 2008 § 2.2 et § 2.3, NR500 GM et sous voile, ligne de charge
+  (vérifiées sur le dossier du navire de référence) ; Code IS 2008 § 3.1
+  passagers, § 3.3 bois en pontée, partie B § 2.1 pêche (À RELIRE sur le
+  texte officiel, et dit à chaque calcul). Le rapport liste les
+  réglementations appliquées. Le navire d'exemple est relu tel quel : mêmes
+  critères, mêmes chiffres. Rien à copier dans votre navire.
+
+NOUVEAU EN v2.22.0 : LES CRITÈRES DISENT CE QU'ILS JUGENT (D-78)
+  Troisième fournée de la revue du 24 septembre. Critère météo : les aires
+  a et b sont bornées par le bras de rafale lw2, comme dans le Code IS — elles
+  retrouvent désormais le recueil approuvé (aire a à 0,0004 près sur les neuf
+  cas) ; la gîte sous vent établi est bornée à 80 % du livet s'il est plus
+  petit que 16° ; tout le détail du calcul est au tableau. Un navire qui ne
+  tient pas le vent, ou qui ne se redresse pas, est NON CONFORME (et non plus
+  « non évaluable »). Nouveau verdict INCOMPLET quand un critère n'a pas pu
+  être évalué. Ligne de charge contrôlée si le tirant d'eau d'été est au
+  dossier (Identification et dimensions) ; port en lourd affiché. Angle du
+  GZmax au sommet de la courbe. Rapport : nombres selon leur unité, textes
+  échappés, sections numérotées sans trou, PDF impossible à écrire signalé.
+  À faire de votre côté : renseigner le tirant d'eau d'été du navire
+  d'exemple (certificat de franc-bord).
+
+NOUVEAU EN v2.21.0 : RIEN NE SE PERD (D-77)
+  Deuxième fournée de la revue du 24 septembre. Chaque fichier du navire
+  (points, plans, navire.json, catalogue) s'écrit de façon protégée : une
+  coupure pendant l'enregistrement ne laisse plus de fichier à moitié écrit,
+  et la version précédente est gardée en .bak. Un point abîmé est relu dans
+  sa copie, ou nommé ; supprimer un point le met à la corbeille du journal.
+  Un NAS injoignable n'est plus remplacé par la copie locale : Carène le dit
+  et propose « Réessayer ». Le verrou multi-postes compte le silence d'un
+  poste sur l'horloge du disque et ne reprend plus le navire d'un autre
+  poste sans demander. Le répartiteur, le ballastage et les tirants d'eau
+  marquent le point modifié ; un point figé ne se modifie par aucun chemin ;
+  réenregistrer le navire garde le point en cours. Une sauvegarde faite
+  pendant un enregistrement reste lisible. Rien à copier dans votre navire.
+
+NOUVEAU EN v2.20.1 : CE QUI FAUSSAIT LA STABILITÉ SANS LE DIRE (D-76)
+  Corrections issues de la revue du 24 septembre.
+  Une cale renommée garde sa cargaison dans tous les points ; deux cales ne
+  peuvent plus porter le même code ; une cargaison dans une cale disparue
+  est comptée au plancher le plus haut (et non plus à la quille) et la vue
+  Stabilité le dit. Le répartiteur compte ce qui est posé dans les autres
+  cales et ne touche plus au point avant « Appliquer ». Le poids unitaire
+  corrigé au manifeste suit les colis déjà posés. Une capacité sans FSM
+  maximal prend celui de sa jauge. Le journal technique n'écrit plus deux
+  fois chaque erreur, note la fermeture et les plantages de Qt. La
+  livraison ne porte plus de fichiers en double. Rien à copier dans votre
+  navire.
+
+NOUVEAU EN v2.20.0 : L'AIDE DÈS LE PREMIER LANCEMENT (D-74) ; UN PROJET LOCAL (D-75)
+  Sur une installation sans navire, l'écran d'accueil propose, à côté de
+  Créer le navire…, un bouton Lire d'abord l'aide… qui ouvre l'aide droit
+  sur « Recréer le navire depuis un logiciel vierge » : ce qu'il faut sous
+  la main, puis les étapes dans l'ordre. F1 ouvre toujours le sommaire ; le
+  bouton PDF… de l'aide enregistre la page ou le manuel entier. Carène
+  reste un projet local : aucun dépôt en ligne n'est configuré pour
+  l'instant, la vérification de mise à jour au lancement le dit en une
+  ligne (décochez-la dans Affichage si elle gêne). Les scripts nettoyer.bat,
+  trier_plans.bat et construire_exe ont quitté le dossier ; l'exécutable se
+  construit par pyinstaller carene.spec. Rien à copier dans votre navire.
+
+NOUVEAU EN v2.19.0 : LES MISES À JOUR DEPUIS GITHUB (D-70) ; PLUS DE THÈME SOMBRE (D-72)
+  Au lancement, Carène demande à GitHub s'il existe une version plus
+  récente (sans Internet, une ligne le dit, rien ne bloque ; la case
+  Affichage > Vérifier les mises à jour au lancement se décoche). Aide >
+  Vérifier les mises à jour… l'installe d'un clic : le zip est vérifié
+  (taille, empreinte SHA-256), Carène se ferme, un script garde l'ancienne
+  version dans _ancienne_<version>\, déplie la nouvelle et relance. Le
+  dossier du navire n'est jamais touché. Le dépôt : etdel/carene-releases
+  (clé depot_github de carene.config.json pour en changer). Une seule
+  palette désormais, la claire. Rien à copier dans votre navire.
+
+NOUVEAU EN v2.18.0 : LES RETOURS DU 22 SEPTEMBRE (D-62 à D-71)
+  L'en-tête passe à la ligne sur une petite fenêtre, rien ne s'y perd plus ;
+  ses boutons portent leur nom. Le Journal a son menu (voir, ouvrir un point,
+  nouveau point, enregistrer, figer) et changer de point demande
+  confirmation. Le jeu d'arrimage est un débordement de chaque colis,
+  respecté à la main comme en automatique. Le double-clic zoome sur la cale,
+  le clic droit ouvre son menu (répartir dans cette cale, vider, plan de
+  cale). La vue Stabilité a sa barre : tirants d'eau relevés, poids fictif,
+  lège, dossier, critères tenus. Le répartiteur laisse débrayer la charge de
+  pont et la hauteur libre, et dit ce que le plan dépasse. Les exports :
+  aperçu du document coché, dossier demandé, aide en PDF. Aide > Signaler un
+  problème… prépare le signalement avec ce qui tournait. Le code d'un type se
+  corrige au catalogue. Deux pages d'aide nouvelles : Premiers pas, Les menus.
+  Rien à copier dans votre navire.
+
+NOUVEAU EN v2.17.1 : PLUSIEURS POSTES, UN NAS ; LES DÉPENDANCES
+  Le navire porte son propre verrou (carene.ouvert.json dans son dossier) :
+  un second ordinateur qui l'ouvre lit « déjà ouvert sur SERVER-PC (session
+  Bridge) depuis 08:12 » et choisit : quitter, ou consulter en LECTURE SEULE
+  (rien ne s'enregistre). Poste planté : le verrou se reprend après trois
+  minutes sans signe de vie. Fermer la boîte du choix du point ne ferme
+  plus Carène. installer_dependances.bat installe les paquets ; Carène
+  vérifie ses dépendances à chaque lancement et dit ce qui manque.
+  Les plans de l'exemple sont calés COMME VOUS LE FERIEZ : le PDF du
+  chantier dans plans\, deux points (C.0 et C.60 sur la ligne de foi) par
+  pont. Rien à copier dans votre navire — sauf si vous voulez le même fond
+  de plan : demandez-le, votre geometrie.json sera recalé de la même façon.
+
+NOUVEAU EN v2.17 : LA SAUVEGARDE DU NAVIRE
+  Navire > Exporter une sauvegarde du navire… : un zip du dossier entier
+  (tables, plans, journal, brouillons) avec un manifeste (version, date,
+  empreintes). Navire > Importer une sauvegarde… le relit après avoir tout
+  vérifié ; le navire en place est mis de côté, jamais écrasé. Une sauvegarde
+  d'une version 2.x se relira dans toute 2.x suivante et dans la 3.x (D-54).
+  C'est le geste à faire AVANT une mise à jour, et le zip à envoyer quand on
+  veut faire vérifier son navire.   python main.py --sauvegarde   l'écrit
+  sans ouvrir la fenêtre (tâche planifiée). Rien à copier dans votre navire.
+
+NOUVEAU EN v2.16.1 : LE PLAN DES DOCKERS, UNE CALE PAR FEUILLE
+  Une page par cale chargée (au 1/75 sur le navire d'exemple, contre
+  1/125-1/150 pour un pont entier), le voisinage en gris, une vignette du
+  pont qui situe la cale. Plus rien d'écrit sur un colis (un numéro se
+  lisait comme un ordre de pose) : juste sa couleur et son sens, un trait
+  doublé pour une pile.
+  Le code couleur est en tableau sous le plan, en français sous-titré
+  anglais : colis dans la cale / au lot, Empilés / Stacked, tonnage, ports ;
+  flèches AVANT / FORWARD et BÂBORD / PORT SIDE. La synthèse nomme les cales
+  vides. Rien à copier dans votre navire.
+
+NOUVEAU EN v2.16 : LA LISTE DU 17 SEPTEMBRE
+  Chargement : quatre outils (Sélectionner, Poser, Zone, Mesurer) et Échap
+  qui revient TOUJOURS à Sélectionner ; barre réagencée par groupes ; le
+  verdict « N problème(s) » se déroule et mène au colis ; double-clic dans
+  une cale = son plan de cale ; trait de coupe borné au pont ; mesure qui
+  reste affichée. Brouillons du plan de chargement (Chargement > Brouillons…).
+  Exporter > Plan de chargement pour les dockers… (PDF A3 pour le quai).
+  Journal : date du point + modifié le ; choix du point avec les notes ;
+  une seule instance de Carène. Éditeur de plans : liste VUE et Ctrl+PgUp/PgDn.
+  Répartiteur : la gîte visée est celle du NAVIRE (le lège qui penche est
+  compté) — c'était ça, le « mauvais côté ».
+  Fermer Carène demande toujours confirmation.
+  Rien à copier dans votre navire pour cette version.
+
+NOUVEAU EN v2.15.1 : UN FICHIER À COPIER DANS VOTRE NAVIRE
+  Les critères de vent (météo IS2008, NR500 voilier sous full / intermediate
+  / reduced sails) sont à l'écran : sélecteur VOILURE dans le bandeau. Ils
+  lisent la surface au vent dans   profils_vent.csv  , nouveau fichier du
+  dossier du navire. Copiez-le UNE FOIS :
+      navires\<NOM>.exemple\profils_vent.csv  ->  navires\<NOM>\
+  Sans lui, Carène montre les voilures et dit dans le tableau des critères
+  qu'il lui manque la table. Rien d'autre n'est à copier.
+  Aussi : la densité se tape dans la vue Capacités (colonne d), et le
+  réglage « Disposition dans la cale » du répartiteur remplace « Sens de
+  pose » (c'est le sens de REMPLISSAGE de la cale, pour la gîte ou
+  l'assiette — pas le sens des colis).
+
+NOUVEAU EN v2.15 : LA MISE À JOUR NE TOUCHE PLUS À VOTRE NAVIRE
+  Ce zip ne contient PAS  navires\<NOM>\  (c'est le vôtre : géométrie
+  retouchée, journal des points, conditions). Il contient
+  navires\<NOM>.exemple\ , que Carène ne lit jamais tel quel :
+    - installation VIERGE (aucun navire) : au premier lancement, l'exemple
+      est copié en navires\<NOM>\ et s'ouvre. Ensuite il n'est plus regardé.
+    - installation EXISTANTE : décompressez le zip par-dessus, rien de ce que
+      vous avez produit n'est écrasé. Rien à copier avant, rien à remettre après.
+  Ne partent pas non plus dans le zip : carene.config.json (vos réglages) et
+  journaux\ (le journal technique).
+  Pour SAUVEGARDER votre travail : Navire > Exporter une sauvegarde du navire…
+  (ou copiez navires\<NOM>\ à la main, ça marche aussi).
+
+OÙ LIRE QUOI
+  l'aide est dans le logiciel : Aide > Aide de Carène… (F1)
+    page « Recréer le navire depuis un logiciel vierge » : le parcours complet
+  README.md                  la présentation du projet et l'installation
+  docs\serveur_mise_a_jour.md comment préparer le serveur des mises à jour
+
+CE QU'IL Y A DANS LE DOSSIER (v2.17.1 : rangé)
+  main.py, carene\          le programme (et son aide : carene\aide\)
+  navires\<NOM>\            VOTRE navire ; navires\<NOM>.exemple\ l'exemple livré
+  docs\                     le document ci-dessus
+  import_<NOM>\             un kit d'import (classeur rempli, CSV), s'il est fourni
+  sauvegardes\, journaux\  vos sauvegardes, le journal technique (jamais livrés)
+  installer_dependances.bat, carene.spec (la recette de l'exécutable)
+  Depuis que les plans sont calés sur les PDF du chantier (D-56, D-57), les
+  bandes PNG de l'ancienne extraction (cales_*.png, coupe_longitudinale.png
+  et leurs caches .npz) ne servent plus : elles se jettent à la main, une
+  fois vérifié que geometrie.json ne les cite plus. Jamais un PDF.
+
+RECRÉER LE NAVIRE SOI-MÊME (v2.15)
+  Navire > Créer ou modifier le navire… (ou « Créer un navire… » sur l'écran
+  d'accueil d'une installation vierge). Première étape « Par où commencer » :
+    - « Créer le classeur type à remplir… » : UN classeur Excel, une feuille
+      par table, une explication sur chaque intitulé (survolez-le) ;
+    - « Importer un classeur rempli… » : tout en une fois, compte rendu par
+      feuille. import_<NOM>\<NOM>_dossier_de_stabilite.xlsx est le
+      classeur rempli avec le navire d'exemple, pour s'entraîner.
+  Puis : la table des couples, le catalogue des plans PDF (éditeur de plans,
+  Fichier > Catalogue des plans…), le calage d'un bouton sur PPAR / PPAV /
+  ligne de base, et « Cas de référence » : rejouer les cas du dossier approuvé
+  et lire les écarts. Un navire neuf est écrit dans navires\<NOM>\ .
+
+OÙ EST LE NAVIRE D'EXEMPLE
+  Dans le dossier   navires\<NOM>\   (créé au premier lancement depuis
+  navires\<NOM>.exemple\ , voir plus haut) :
+    navire.json, hydrostatiques.csv, pantocarenes_kn.csv, jauges\   (tables du dossier approuvé)
+    profils_vent.csv                                                (surface au vent par voilure, v2.15.1)
+    geometrie.json, couples.csv, plans\                            (cales décalquées, plans calés)
+    formes.json                                                     (le plan des formes décalqué)
+    catalogue_charges.json, equipements_bord.json, ports.json       (catalogue, matériel du bord, escales)
+    validation\                                                     (dossier approuvé 135/135, cas_reference.csv)
+    journal\ , conditions\                                          (les points et les cas, créés à l'usage)
+
+COMMENT L'OUVRIR
+  Depuis les sources :   installer_dependances.bat une fois, puis python main.py
+                         (python main.py --dependances : l'état des paquets)
+  Depuis l'exécutable :  pip install pyinstaller, puis pyinstaller carene.spec,
+                         puis dist\Carene\Carene.exe — navires\ se copie à côté de l'exe
+
+SI VOUS AVIEZ DÉJÀ UNE VERSION PRÉCÉDENTE
+  Décompressez par-dessus. Votre navires\<NOM>\ reste le vôtre ; l'exemple
+  livré ne le remplace pas. Une correction du navire d'exemple, s'il y en a
+  une, est annoncée dans la note de version : à vous de la reporter, ou de copier le
+  fichier concerné depuis navires\<NOM>.exemple\ .
+  Une installation v2.2 avait un dossier navire\ à côté de l'application, ou
+  un emplacement choisi dans "Navire > Emplacement du navire…" : l'application
+  le dit au démarrage. Rien n'est effacé.
+
+VÉRIFIER
+  python main.py --chemins      affiche quel dossier de navire sera ouvert,
+                                et où est le navire d'exemple.
+
+CE QUI EST DANS LE DOSSIER DU NAVIRE ET PAS DANS LE CODE
+  Tout ce qui décrit le navire. Le logiciel ne contient aucune donnée de navire.

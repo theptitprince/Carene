@@ -1,0 +1,191 @@
+{
+ "format": "carene-reglement",
+ "version_format": 1,
+ "id": "IMO_IS2008_A_3_3_METEO",
+ "titre": "Code IS 2008 — critère météo, bois en pontée",
+ "texte": "OMI, résolution MSC.267(85), Code IS 2008, partie A, § 3.3.2.4 (critère météo du § 2.3 pour un navire qui porte du bois en pontée)",
+ "version": "MSC.267(85)",
+ "statut": "relu",
+ "verification": "Relue le 24/09/2026 sur le texte officiel (résolution MSC.267(85), PDF de l'OMI) : seuils, formules et paragraphes conformes. Pas encore rejouée sur un dossier de stabilité approuvé. Même calcul que le § 2.3 vérifié, limite du livet levée.",
+ "applicabilite": {
+  "types": [
+   "cargo"
+  ],
+  "propulsion": [
+   "moteur",
+   "voile",
+   "mixte"
+  ],
+  "longueur_min_m": 24.0,
+  "cargaisons": [
+   "bois_en_pontee"
+  ],
+  "note": "À retenir AU LIEU du critère météo § 2.3 quand le navire applique les critères de remplacement du § 3.3.2 : les 16° de gîte sous vent établi restent, la limite de 80 % de l'angle d'immersion du livet peut être ignorée. La surface au vent comprend la pontée."
+ },
+ "situation": "sans_voile",
+ "criteres": [
+  {
+   "code": "METEO",
+   "libelle": "Critère météo IS 2008 § 2.3, bois en pontée",
+   "brique": "meteo",
+   "parametres": {
+    "pression_vent_pa": 504.0,
+    "angle_gite_vent_stable_deg_max": 16.0,
+    "fraction_angle_immersion_livet": null,
+    "facteur_rafale": 1.5,
+    "angle_theta2_max_deg": 50.0
+   },
+   "seuil": null,
+   "comparaison": ">=",
+   "unite": "",
+   "reference": "§ 3.3.2.4 et § 2.3"
+  }
+ ],
+ "tables": {
+  "X1_B_sur_d": [
+   [
+    2.4,
+    1.0
+   ],
+   [
+    2.5,
+    0.98
+   ],
+   [
+    2.6,
+    0.96
+   ],
+   [
+    2.7,
+    0.95
+   ],
+   [
+    2.8,
+    0.93
+   ],
+   [
+    2.9,
+    0.91
+   ],
+   [
+    3.0,
+    0.9
+   ],
+   [
+    3.1,
+    0.88
+   ],
+   [
+    3.2,
+    0.86
+   ],
+   [
+    3.3,
+    0.84
+   ],
+   [
+    3.4,
+    0.82
+   ],
+   [
+    3.5,
+    0.8
+   ]
+  ],
+  "X2_Cb": [
+   [
+    0.45,
+    0.75
+   ],
+   [
+    0.5,
+    0.82
+   ],
+   [
+    0.55,
+    0.89
+   ],
+   [
+    0.6,
+    0.95
+   ],
+   [
+    0.65,
+    0.97
+   ],
+   [
+    0.7,
+    1.0
+   ]
+  ],
+  "k_Ak_pct_LB": [
+   [
+    0.0,
+    1.0
+   ],
+   [
+    1.0,
+    0.98
+   ],
+   [
+    1.5,
+    0.95
+   ],
+   [
+    2.0,
+    0.88
+   ],
+   [
+    2.5,
+    0.79
+   ],
+   [
+    3.0,
+    0.74
+   ],
+   [
+    3.5,
+    0.72
+   ],
+   [
+    4.0,
+    0.7
+   ]
+  ],
+  "s_periode_s": [
+   [
+    6,
+    0.1
+   ],
+   [
+    7,
+    0.098
+   ],
+   [
+    8,
+    0.093
+   ],
+   [
+    12,
+    0.065
+   ],
+   [
+    14,
+    0.053
+   ],
+   [
+    16,
+    0.044
+   ],
+   [
+    18,
+    0.038
+   ],
+   [
+    20,
+    0.035
+   ]
+  ],
+  "_note": "Tables 2.3.4-1 à 2.3.4-4, écrêtées à leurs bornes comme le texte le dit ; la table s s'arrête à 20 s (0,035 au-delà)."
+ }
+}

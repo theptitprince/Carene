@@ -1,0 +1,39 @@
+{
+ "format": "carene-reglement",
+ "version_format": 1,
+ "id": "IMO_IS2008_A_2_3",
+ "titre": "Code IS 2008 — critère de roulis et de vent violent (critère météo)",
+ "texte": "OMI, résolution MSC.267(85), Code IS 2008, partie A, § 2.3",
+ "version": "MSC.267(85)",
+ "statut": "verifie",
+ "verification": "Rejoué sur les 9 cas « cargo » du recueil approuvé du navire de référence : aire a à 0,0004 m·rad près, aire b à quelques pour cent (D-78).",
+ "applicabilite": {
+  "types": ["cargo", "passagers", "peche", "servitude", "formation", "voilier_traditionnel", "autre"],
+  "propulsion": ["moteur", "voile", "mixte"],
+  "longueur_min_m": 24.0,
+  "note": "Navires de charge et à passagers de 24 m et plus. Pour un voilier, s'applique voiles enroulées ; sous voile, c'est le critère de voilure retenu qui le remplace."
+ },
+ "situation": "sans_voile",
+ "criteres": [
+  {"code": "METEO", "libelle": "Critère météo IS 2008 § 2.3", "brique": "meteo",
+   "parametres": {
+    "pression_vent_pa": 504.0,
+    "angle_gite_vent_stable_deg_max": 16.0,
+    "fraction_angle_immersion_livet": 0.80,
+    "facteur_rafale": 1.5,
+    "angle_theta2_max_deg": 50.0
+   },
+   "seuil": null, "comparaison": ">=", "unite": "", "reference": "§ 2.3.1 à 2.3.4"}
+ ],
+ "tables": {
+  "X1_B_sur_d": [[2.4, 1.00], [2.5, 0.98], [2.6, 0.96], [2.7, 0.95], [2.8, 0.93],
+                 [2.9, 0.91], [3.0, 0.90], [3.1, 0.88], [3.2, 0.86], [3.3, 0.84],
+                 [3.4, 0.82], [3.5, 0.80]],
+  "X2_Cb": [[0.45, 0.75], [0.50, 0.82], [0.55, 0.89], [0.60, 0.95], [0.65, 0.97], [0.70, 1.00]],
+  "k_Ak_pct_LB": [[0.0, 1.00], [1.0, 0.98], [1.5, 0.95], [2.0, 0.88], [2.5, 0.79],
+                  [3.0, 0.74], [3.5, 0.72], [4.0, 0.70]],
+  "s_periode_s": [[6, 0.100], [7, 0.098], [8, 0.093], [12, 0.065], [14, 0.053],
+                  [16, 0.044], [18, 0.038], [20, 0.035]],
+  "_note": "Tables 2.3.4-1 à 2.3.4-4, écrêtées à leurs bornes comme le texte le dit ; la table s s'arrête à 20 s (0,035 au-delà)."
+ }
+}
