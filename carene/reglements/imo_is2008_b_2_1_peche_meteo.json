@@ -1,0 +1,215 @@
+{
+ "format": "carene-reglement",
+ "version_format": 1,
+ "id": "IMO_IS2008_B_2_1_METEO",
+ "titre": "Code IS 2008 — critère météo, navire de pêche de 24 à 45 m",
+ "texte": "OMI, résolution MSC.267(85), Code IS 2008, partie B, § 2.1.4.2 (critère météo de la partie A, § 2.3, avec la pression du vent selon la hauteur h)",
+ "version": "MSC.267(85)",
+ "statut": "relu",
+ "verification": "Relue le 24/09/2026 sur le texte officiel (résolution MSC.267(85), PDF de l'OMI) : seuils, formules et paragraphes conformes. Pas encore rejouée sur un dossier de stabilité approuvé. Même calcul que le § 2.3 vérifié, pression lue selon h.",
+ "applicabilite": {
+  "types": [
+   "peche"
+  ],
+  "propulsion": [
+   "moteur",
+   "voile",
+   "mixte"
+  ],
+  "longueur_min_m": 24.0,
+  "longueur_max_m": 45.0,
+  "note": "Navires de pêche de 24 à 45 m, au choix de l'Administration, à la place du § 2.3 à 504 Pa. h est la hauteur du centre de la surface au vent au-dessus de la flottaison ; entre deux lignes de la table, la pression est interpolée. À partir de 45 m, c'est le § 2.3."
+ },
+ "situation": "sans_voile",
+ "criteres": [
+  {
+   "code": "METEO",
+   "libelle": "Critère météo IS 2008 § 2.3, pêche de 24 à 45 m",
+   "brique": "meteo",
+   "parametres": {
+    "pression_vent_pa": 504.0,
+    "angle_gite_vent_stable_deg_max": 16.0,
+    "fraction_angle_immersion_livet": 0.8,
+    "facteur_rafale": 1.5,
+    "angle_theta2_max_deg": 50.0,
+    "pression_vent_selon_h_pa": [
+     [
+      1.0,
+      316.0
+     ],
+     [
+      2.0,
+      386.0
+     ],
+     [
+      3.0,
+      429.0
+     ],
+     [
+      4.0,
+      460.0
+     ],
+     [
+      5.0,
+      485.0
+     ],
+     [
+      6.0,
+      504.0
+     ]
+    ]
+   },
+   "seuil": null,
+   "comparaison": ">=",
+   "unite": "",
+   "reference": "partie B, § 2.1.4.2"
+  }
+ ],
+ "tables": {
+  "X1_B_sur_d": [
+   [
+    2.4,
+    1.0
+   ],
+   [
+    2.5,
+    0.98
+   ],
+   [
+    2.6,
+    0.96
+   ],
+   [
+    2.7,
+    0.95
+   ],
+   [
+    2.8,
+    0.93
+   ],
+   [
+    2.9,
+    0.91
+   ],
+   [
+    3.0,
+    0.9
+   ],
+   [
+    3.1,
+    0.88
+   ],
+   [
+    3.2,
+    0.86
+   ],
+   [
+    3.3,
+    0.84
+   ],
+   [
+    3.4,
+    0.82
+   ],
+   [
+    3.5,
+    0.8
+   ]
+  ],
+  "X2_Cb": [
+   [
+    0.45,
+    0.75
+   ],
+   [
+    0.5,
+    0.82
+   ],
+   [
+    0.55,
+    0.89
+   ],
+   [
+    0.6,
+    0.95
+   ],
+   [
+    0.65,
+    0.97
+   ],
+   [
+    0.7,
+    1.0
+   ]
+  ],
+  "k_Ak_pct_LB": [
+   [
+    0.0,
+    1.0
+   ],
+   [
+    1.0,
+    0.98
+   ],
+   [
+    1.5,
+    0.95
+   ],
+   [
+    2.0,
+    0.88
+   ],
+   [
+    2.5,
+    0.79
+   ],
+   [
+    3.0,
+    0.74
+   ],
+   [
+    3.5,
+    0.72
+   ],
+   [
+    4.0,
+    0.7
+   ]
+  ],
+  "s_periode_s": [
+   [
+    6,
+    0.1
+   ],
+   [
+    7,
+    0.098
+   ],
+   [
+    8,
+    0.093
+   ],
+   [
+    12,
+    0.065
+   ],
+   [
+    14,
+    0.053
+   ],
+   [
+    16,
+    0.044
+   ],
+   [
+    18,
+    0.038
+   ],
+   [
+    20,
+    0.035
+   ]
+  ],
+  "_note": "Tables 2.3.4-1 à 2.3.4-4, écrêtées à leurs bornes comme le texte le dit ; la table s s'arrête à 20 s (0,035 au-delà)."
+ }
+}

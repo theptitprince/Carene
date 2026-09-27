@@ -1,0 +1,29 @@
+{
+ "format": "carene-reglement",
+ "version_format": 1,
+ "id": "BV_NR500_SOUS_VOILE",
+ "titre": "BV NR500 — stabilité sous voile (« Sailing Yachts »)",
+ "texte": "Bureau Veritas, NR500, critère de stabilité sous voile tel qu'imprimé par le dossier de stabilité approuvé du navire de référence pour ses cas sous voile (01d-f, 02d-f)",
+ "version": "telle que citée par le dossier de stabilité approuvé du navire de référence",
+ "statut": "verifie",
+ "verification": "Rejoué sur les six cas sous voile du recueil approuvé du navire de référence (force de vent, pression et vitesse retrouvées, D-58).",
+ "applicabilite": {
+  "types": ["cargo", "passagers", "formation", "voilier_traditionnel", "autre"],
+  "propulsion": ["voile", "mixte"],
+  "note": "Navires à voile classés au Bureau Veritas ; remplace le critère météo pour les conditions sous voile."
+ },
+ "situation": "sous_voile",
+ "criteres": [
+  {"code": "NR500_VOILE", "libelle": "Critère NR500 sous voile", "brique": "nr500_voilier",
+   "parametres": {
+    "gm0_corrige_m_min": 0.30,
+    "gz_a_50deg_ou_gzmax_m_min": 0.50,
+    "angle_gzmax_deg_min": 50.0,
+    "aire_gz_vent_m_rad_min": 0.065,
+    "angle_statique_vent_deg_max": 20.0,
+    "fraction_angle_immersion_pont": 0.90
+   },
+   "seuil": null, "comparaison": ">=", "unite": "", "reference": "NR500, critère sous voile"}
+ ],
+ "_note": "Le coefficient de forme (F = C·P·A), la relation pression/vitesse et l'angle d'immersion du pont sont des conventions du DOSSIER du navire, pas du règlement : ils restent dans navire.json (criteres.nr500_voile_sous_voile) et s'ajoutent à ces paramètres."
+}

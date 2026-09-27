@@ -1,0 +1,22 @@
+{
+ "format": "carene-reglement",
+ "version_format": 1,
+ "id": "LL1966_LIGNE_DE_CHARGE",
+ "titre": "Convention sur les lignes de charge — tirant d'eau face à la marque d'été",
+ "texte": "OMI, Convention internationale de 1966 sur les lignes de charge : le navire ne doit pas être chargé au-delà de sa ligne de charge d'été (en eau de mer)",
+ "version": "LL 1966",
+ "statut": "verifie",
+ "verification": "Comparaison directe du tirant d'eau milieu de l'équilibre (en eau de mer, comme la table) au tirant d'eau d'été du certificat de franc-bord (dimensions.tirant_eau_ete_m).",
+ "applicabilite": {
+  "types": ["cargo", "passagers", "peche", "servitude", "formation", "voilier_traditionnel", "autre"],
+  "propulsion": ["moteur", "voile", "mixte"],
+  "longueur_min_m": 0.0,
+  "note": "Tout navire muni d'un certificat de franc-bord. Sans tirant d'eau d'été au dossier, rien n'est contrôlé et un message le dit."
+ },
+ "situation": "toujours",
+ "criteres": [
+  {"code": "LIGNE_CHARGE", "libelle": "Tirant d'eau milieu ≤ tirant d'eau d'été",
+   "brique": "ligne_de_charge", "parametres": {},
+   "seuil": null, "comparaison": "<=", "unite": "m", "reference": "LL 1966, annexe I (ligne de charge d'été)"}
+ ]
+}

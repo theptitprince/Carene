@@ -1,0 +1,64 @@
+{
+ "format": "carene-reglement",
+ "version_format": 1,
+ "id": "IMO_IS2008_A_3_3",
+ "titre": "Code IS 2008 — navires transportant du bois en pontée",
+ "texte": "OMI, résolution MSC.267(85), Code IS 2008, partie A, § 3.3.2 (critères de remplacement pour les navires transportant des cargaisons de bois en pontée)",
+ "version": "MSC.267(85)",
+ "statut": "relu",
+ "verification": "Relue le 24/09/2026 sur le texte officiel (résolution MSC.267(85), PDF de l'OMI) : seuils, formules et paragraphes conformes. Pas encore rejouée sur un dossier de stabilité approuvé.",
+ "applicabilite": {
+  "types": [
+   "cargo"
+  ],
+  "propulsion": [
+   "moteur",
+   "voile",
+   "mixte"
+  ],
+  "longueur_min_m": 24.0,
+  "cargaisons": [
+   "bois_en_pontee"
+  ],
+  "note": "Remplace le § 2.2 entier (2.2.1 à 2.2.4) si l'Administration l'accepte, et seulement si la pontée s'étend entre les superstructures (à défaut, jusqu'à l'arrière de la dernière écoutille), sur toute la largeur, et reste saisie aux grands angles. Retenir alors, au lieu du § 2.3, le critère météo « bois en pontée » (§ 3.3.2.4). Le GM se vérifie à tout moment du voyage, eau absorbée par la pontée et givrage compris : à faire sur le point d'arrivée."
+ },
+ "situation": "toujours",
+ "criteres": [
+  {
+   "code": "BOIS_AIRE",
+   "libelle": "Aire 0°-40° (ou θf), bois en pontée",
+   "brique": "aire",
+   "parametres": {
+    "de_deg": 0.0,
+    "a_deg": 40.0,
+    "plafond_theta_f": true
+   },
+   "seuil": 0.08,
+   "comparaison": ">=",
+   "unite": "m.rad",
+   "reference": "§ 3.3.2.1"
+  },
+  {
+   "code": "BOIS_GZ",
+   "libelle": "GZ maximal, bois en pontée",
+   "brique": "gz_au_dela",
+   "parametres": {
+    "angle_deg": 0.0
+   },
+   "seuil": 0.25,
+   "comparaison": ">=",
+   "unite": "m",
+   "reference": "§ 3.3.2.2"
+  },
+  {
+   "code": "BOIS_GM",
+   "libelle": "GM corrigé, bois en pontée",
+   "brique": "gm",
+   "parametres": {},
+   "seuil": 0.1,
+   "comparaison": ">=",
+   "unite": "m",
+   "reference": "§ 3.3.2.3"
+  }
+ ]
+}

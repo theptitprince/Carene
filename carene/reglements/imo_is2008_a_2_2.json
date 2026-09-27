@@ -1,0 +1,37 @@
+{
+ "format": "carene-reglement",
+ "version_format": 1,
+ "id": "IMO_IS2008_A_2_2",
+ "titre": "Code IS 2008 — critères généraux de stabilité à l'état intact",
+ "texte": "OMI, résolution MSC.267(85), Recueil international de règles de stabilité à l'état intact (Code IS 2008), partie A, § 2.2",
+ "version": "MSC.267(85)",
+ "statut": "verifie",
+ "verification": "Seuils et formules rejoués sur les 15 cas du recueil approuvé du navire de référence : 135/135 vérifications dans la tolérance.",
+ "applicabilite": {
+  "types": ["cargo", "passagers", "peche", "servitude", "formation", "voilier_traditionnel", "autre"],
+  "propulsion": ["moteur", "voile", "mixte"],
+  "longueur_min_m": 24.0,
+  "note": "Navires de charge et à passagers de 24 m et plus (partie A, § 1.1)."
+ },
+ "situation": "toujours",
+ "criteres": [
+  {"code": "IS2008_A1", "libelle": "Aire 0°-30°", "brique": "aire",
+   "parametres": {"de_deg": 0.0, "a_deg": 30.0, "plafond_theta_f": false},
+   "seuil": 0.055, "comparaison": ">=", "unite": "m.rad", "reference": "§ 2.2.1"},
+  {"code": "IS2008_A2", "libelle": "Aire 0°-40° (ou θf)", "brique": "aire",
+   "parametres": {"de_deg": 0.0, "a_deg": 40.0, "plafond_theta_f": true},
+   "seuil": 0.090, "comparaison": ">=", "unite": "m.rad", "reference": "§ 2.2.1"},
+  {"code": "IS2008_A3", "libelle": "Aire 30°-40° (ou θf)", "brique": "aire",
+   "parametres": {"de_deg": 30.0, "a_deg": 40.0, "plafond_theta_f": true},
+   "seuil": 0.030, "comparaison": ">=", "unite": "m.rad", "reference": "§ 2.2.1"},
+  {"code": "IS2008_GZ", "libelle": "GZ maximal au-delà de 30°", "brique": "gz_au_dela",
+   "parametres": {"angle_deg": 30.0},
+   "seuil": 0.200, "comparaison": ">=", "unite": "m", "reference": "§ 2.2.2"},
+  {"code": "IS2008_ANG", "libelle": "Angle du GZmax", "brique": "angle_gz_max",
+   "parametres": {},
+   "seuil": 25.0, "comparaison": ">=", "unite": "deg", "reference": "§ 2.2.3"},
+  {"code": "IS2008_GM", "libelle": "GM0 corrigé", "brique": "gm",
+   "parametres": {},
+   "seuil": 0.150, "comparaison": ">=", "unite": "m", "reference": "§ 2.2.4"}
+ ]
+}
