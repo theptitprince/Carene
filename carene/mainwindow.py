@@ -3025,7 +3025,8 @@ class MainWindow(QMainWindow):
             "<i>Navire › Créer ou modifier le navire…</i><br><br>"
             "Un problème ? <i>Aide › Signaler un problème…</i> — sur GitHub : "
             f"<a href='{CONTACT}'>{CONTACT}</a><br><br>"
-            f"<span style='color:#888'>{__copyright__} — tous droits réservés.<br><br>"
+            f"<span style='color:#888'>{__copyright__} — logiciel libre sous licence GNU GPL v3 ou ultérieure, sans aucune garantie."
+            "<br>Le code source : github.com/theptitprince/Carene<br><br>"
             f"{AVERTISSEMENT}</span>")
 
 

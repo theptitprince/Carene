@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: L'aide de Carène
+    url: https://github.com/theptitprince/Carene#readme
+    about: "L'aide complète est dans le logiciel : Aide › Aide de Carène… (F1)."

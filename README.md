@@ -1,5 +1,13 @@
 # Carène
 
+[![Version](https://img.shields.io/github/v/release/theptitprince/Carene?label=version)](https://github.com/theptitprince/Carene/releases/latest)
+[![Licence](https://img.shields.io/github/license/theptitprince/Carene?label=licence)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.14-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Qt](https://img.shields.io/badge/Qt-PySide6-41CD52?logo=qt&logoColor=white)](https://doc.qt.io/qtforpython-6/)
+[![Plateforme](https://img.shields.io/badge/plateforme-Windows-0078D6)](#installer-et-lancer)
+[![Signalements](https://img.shields.io/github/issues/theptitprince/Carene?label=signalements)](https://github.com/theptitprince/Carene/issues)
+[![Statut](https://img.shields.io/badge/statut-aide%20non%20certifi%C3%A9e-orange)](#carène)
+
 **Aide au chargement et à la stabilité à l'état intact des navires de charge.**
 
 Carène se tient à côté de l'officier pendant qu'il prépare son chargement :
@@ -65,6 +73,19 @@ s'est passé, ce qui tournait) et ouvre un nouveau signalement dans les
 dépôt est public : relisez le rapport avant de l'envoyer ; le nom du navire
 et le chemin de son dossier y sont masqués par défaut.
 
+## Versions
+
+Chaque version a sa [note de version](https://github.com/theptitprince/Carene/releases) ;
+`LISEZMOI.txt` retrace tout l'historique. Les postes équipés se mettent à
+jour depuis le serveur du développeur (*Aide › Vérifier les mises à jour…*).
+
+## Contribuer
+
+Carène est un projet personnel, développé au plus près de l'usage à bord.
+Les signalements et les idées sont les bienvenus dans les
+[Issues](https://github.com/theptitprince/Carene/issues) ; pour une
+modification du code, ouvrez d'abord une issue pour en parler.
+
 ---
 
-ETDEL © 2026 — tous droits réservés.
+ETDEL © 2026 — logiciel libre sous licence [GNU GPL v3 ou ultérieure](LICENSE), fourni sans aucune garantie.
