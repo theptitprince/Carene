@@ -5,17 +5,23 @@ où ils sont écrits.
 
 ## Une seule fenêtre pour tout
 
-*Exporter › Exporter…* (`Ctrl+E`).
+*Exporter › Exporter ou imprimer…* (`Ctrl+E`, ou `Ctrl+P`), le bouton
+**Exporter / imprimer** du bandeau, ou celui de la barre de la vue
+*Stabilité*.
 
 À l'escale on sort en général tout d'un coup — le rapport pour le dossier, les
 feuilles de pointage pour le quai, le plan pour la passerelle — et dans le même
-dossier. La fenêtre est donc unique : des cases à cocher, un dossier de sortie,
-un bouton.
+dossier. La fenêtre est donc unique : des cases à cocher (avec **Tout cocher**
+et **Tout décocher**), un dossier de sortie, et trois boutons qui portent tous
+sur **la sélection entière** :
 
 1. Cochez les documents voulus.
-2. **Exporter**. Carène **demande alors où écrire** — le dossier proposé est
-   celui du champ *Dossier* — et vous pouvez en choisir un autre. La ligne
-   d'état dit ce qui a été écrit ; un bouton ouvre le dossier.
+2. **Aperçu** montre tous les documents cochés à la suite, tels qu'ils
+   s'imprimeront ; **Imprimer** les envoie en une seule fois à l'imprimante.
+   Les deux boutons disent combien de documents ils vont montrer.
+3. **Exporter (PDF, CSV)…** les écrit. Carène **demande alors où écrire** — le
+   dossier proposé est celui du champ *Dossier* — et vous pouvez en choisir un
+   autre. La ligne d'état dit ce qui a été écrit ; un bouton ouvre le dossier.
 
 Le dossier proposé par défaut est `exports/` dans le dossier du navire, dans un
 sous-dossier nommé d'après le point du journal.
@@ -77,8 +83,8 @@ pas de courbes limites, pas de voilure) le dit en une ligne et n'invente rien.
 
 ## Le plan de chargement pour les dockers
 
-*Exporter › Plan de chargement pour les dockers…*, ou la case **Plan de
-chargement pour les dockers (PDF)** de la fenêtre d'export. C'est le document
+La case **Plan de chargement pour les dockers (PDF)** de la fenêtre
+*Exporter ou imprimer*. C'est le document
 qu'on tend au quai une fois le chargement calé : **qui va où, visuellement**.
 
 Un PDF A3 paysage, à part du lot de l'escale (`plan_chargement_<navire>_point<n>.pdf`) :
@@ -128,25 +134,17 @@ Tous portent, en tête ou en pied : le **navire**, le **point du journal**, la
 
 ## Aperçu et impression
 
-Les deux boutons **Aperçu** et **Imprimer** de la fenêtre portent sur **le
-document coché** — et ils le nomment (« Aperçu : Relevé des capacités… »).
-Quand plusieurs documents sont cochés, c'est le dernier qu'on a cliqué qui
-est visé, sinon le premier coché. Chaque document est montré avec **sa** mise
-en page : le rapport en A4 portrait, les relevés et le plan en A4 paysage, les
-plans cotés et la planche des dockers en A3. Un document qui n'est qu'un
-tableau CSV (le journal des points) n'a pas d'aperçu, et le bouton le dit.
+Les boutons **Aperçu** et **Imprimer** de la fenêtre portent sur **tous les
+documents cochés**, à la suite, et disent combien il y en a (« Aperçu
+(3 documents)… »). Pour un seul document, ne cochez que lui. Chaque document
+garde **sa** mise en page : le rapport en A4 portrait, les relevés et le plan
+en A4 paysage, les plans cotés et la planche des dockers en A3. Un document
+qui n'est qu'un tableau CSV (le journal des points) ne s'imprime pas : il est
+laissé de côté, et l'infobulle des boutons le dit.
 
-- *Exporter › Aperçu du rapport de stabilité…* ouvre la fenêtre directement
-  sur l'aperçu du rapport, sans écrire de fichier ; la barre de la vue
-  *Stabilité* a le même bouton.
-- *Exporter › Imprimer le rapport de stabilité…* l'envoie directement à une
-  imprimante.
-- *Exporter › Plan de chargement pour les dockers…* ouvre la fenêtre avec
-  cette seule planche cochée.
-
-Ces deux entrées demandent le module d'impression de Qt. Sur une installation
-minimale où il manque, elles sont indisponibles — l'export PDF, lui, marche
-toujours.
+L'aperçu et l'impression demandent le module d'impression de Qt. Sur une
+installation minimale où il manque, ils sont indisponibles — l'export PDF,
+lui, marche toujours.
 
 ## Les plans cotés : à quoi ils servent vraiment
 

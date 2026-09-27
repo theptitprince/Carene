@@ -368,7 +368,7 @@ def _preparer(device, ctx, win):
         device.setCreator(MENTION)
 
 
-def peindre_sur(device, win, ctx=None):
+def peindre_sur(device, win, ctx=None, painter=None):
     """Peint la planche sur un périphérique déjà réglé (PDF ou imprimante).
     Rend le nombre de pages."""
     from . import rapports
@@ -387,7 +387,11 @@ def peindre_sur(device, win, ctx=None):
     if not cales:
         raise ValueError("aucune cale tracée : pas de plan coté")
 
-    painter = QPainter(device)
+    # `painter` : un pinceau déjà ouvert, quand plusieurs documents se
+    # peignent à la suite (D-92) ; il n'est alors pas refermé ici
+    a_fermer = painter is None
+    if painter is None:
+        painter = QPainter(device)
     try:
         rect = device.pageLayout().paintRectPixels(device.resolution())
         page = {"largeur": rect.width(), "hauteur": rect.height(),
@@ -410,7 +414,8 @@ def peindre_sur(device, win, ctx=None):
                          _aire(cap.points), cap.z_min, cap.z_max)
         return n
     finally:
-        painter.end()
+        if a_fermer:
+            painter.end()
 
 
 def _memo_des_sources(dossier):

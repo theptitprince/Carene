@@ -341,7 +341,9 @@ l'installation livre un navire d'exemple, il arrive sous
 vierge — un navire déjà là n'est jamais écrasé par une mise à jour (voir
 [Recréer le navire](creation_du_navire.md)).
 
-*Navire › Emplacement du navire…* dit où il est et permet de le déplacer.
+*Navire › Ouvrir un autre dossier de navire…* ouvre un navire rangé ailleurs
+(une clé, le NAS) : on désigne son dossier, Carène l'ouvre à la place du
+courant et s'en souvient. Rien n'est déplacé ni copié.
 
 ## Sauvegarder et reprendre le navire
 

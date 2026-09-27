@@ -574,15 +574,21 @@ def _preparer(device, paysage=False, titre=""):
         device.setCreator(MENTION)
 
 
-def peindre(device, ctx, titre, construire_html, ressources=None):
+def peindre(device, ctx, titre, construire_html, ressources=None, painter=None):
     """Pagine un document sur `device` avec en-tête et pied sur chaque page.
 
     `construire_html(page)` reçoit les dimensions utiles (largeur en pixels du
     périphérique, facteur `k`) et rend le HTML du corps ; `ressources` est un
     dict nom → QImage référencé par les balises <img>. Renvoie le nombre de
-    pages."""
+    pages.
+
+    `painter` : un pinceau DÉJÀ OUVERT sur `device` — plusieurs documents se
+    peignent alors à la suite dans un même aperçu ou une même impression
+    (D-92) ; il n'est pas refermé ici."""
     page = _Page(device)
-    painter = QPainter(device)
+    a_fermer = painter is None
+    if painter is None:
+        painter = QPainter(device)
     if not painter.isActive():
         # le fichier n'a pas pu être ouvert en écriture (encore ouvert dans
         # un lecteur PDF, dossier en lecture seule) : l'ancien fichier était
@@ -626,7 +632,8 @@ def peindre(device, ctx, titre, construire_html, ressources=None):
             _entete_pied(painter, page, ctx, titre, i + 1, n, f_ent, f_pied, h_ent, h_pied)
         return n
     finally:
-        painter.end()
+        if a_fermer:
+            painter.end()
 
 
 def _entete_pied(painter, page, ctx, titre, i, n, f_ent, f_pied, h_ent, h_pied):
@@ -1639,6 +1646,67 @@ def peindre_document(win, cle, device, ctx=None, port=None):
     _preparer(device, paysage, f"{titre} — {ctx.navire}")
     peindre(device, ctx, titre, html, res)
     return titre
+
+
+def imprimable(win, cle, ctx=None, port=None):
+    """Ce document se peint-il (aperçu, impression) ? Un CSV seul, non."""
+    if cle in PEINTS:
+        return True
+    return document(win, cle, ctx, port) is not None
+
+
+def peindre_documents(win, cles, device, ctx=None, port=None, docs=None):
+    """Peint À LA SUITE, sur un seul périphérique (aperçu ou imprimante), tous
+    les documents `cles` qui se peignent, dans leur ordre (D-92). Chacun garde
+    sa mise en page — A4 portrait ou paysage, A3 pour les planches — réglée
+    juste avant sa première page. Rend [(clé, titre)] des documents peints ;
+    les CSV seuls sont sautés. `docs` : {clé: document(...)} déjà fabriqués."""
+    ctx = ctx or Contexte(win)
+    docs = docs or {}
+    peints = []
+    painter = None
+    try:
+        for cle in cles:
+            if cle in PEINTS:
+                if cle == "plans_cotes":
+                    from . import plans_cotes as module
+                    titre = "Plans cotés des cales"
+                else:
+                    from . import plan_dockers as module
+                    titre = "Plan de chargement pour les dockers"
+
+                def regler(d, m=module):
+                    m._preparer(d, ctx, win)
+
+                def peintre(d, p, m=module):
+                    m.peindre_sur(d, win, ctx, painter=p)
+            else:
+                doc = docs.get(cle) or document(win, cle, ctx, port)
+                if doc is None:
+                    continue                       # un CSV seul
+                titre, html, res, paysage = doc
+
+                def regler(d, t=titre, pay=paysage):
+                    _preparer(d, pay, f"{t} — {ctx.navire}")
+
+                def peintre(d, p, t=titre, h=html, r=res):
+                    peindre(d, ctx, t, h, r, painter=p)
+            # la mise en page se règle AVANT la première page du document :
+            # avant d'ouvrir le pinceau pour le premier, juste avant newPage()
+            # pour les suivants (QPagedPaintDevice le permet)
+            regler(device)
+            if painter is None:
+                painter = QPainter(device)
+                if not painter.isActive():
+                    raise OSError("le périphérique d'impression ne s'ouvre pas")
+            else:
+                device.newPage()
+            peintre(device, painter)
+            peints.append((cle, titre))
+    finally:
+        if painter is not None and painter.isActive():
+            painter.end()
+    return peints
 
 
 def exporter_rapport(win, chemin, ctx=None):

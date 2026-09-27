@@ -384,6 +384,15 @@ def _d_save(p, c):
     p.drawRect(QRectF(6, 11, 8, 5.5))
 
 
+def _d_print(p, c):
+    """Une imprimante : le bac, le corps, la feuille qui sort."""
+    _pen(p, c)
+    p.drawRect(QRectF(6, 3.5, 8, 4))                     # la feuille en attente
+    p.drawRoundedRect(QRectF(3, 7.5, 14, 6.5), 1.5, 1.5)  # le corps
+    p.drawRect(QRectF(6, 11.5, 8, 5))                    # la feuille imprimée
+    p.drawLine(QPointF(7.5, 13.5), QPointF(12.5, 13.5))
+
+
 def _d_image(p, c):
     _pen(p, c)
     p.drawRoundedRect(QRectF(3, 4.5, 14, 11), 2, 2)
@@ -522,6 +531,7 @@ def _d_undo(p, c):
 _DRAW = {
     "undo": _d_undo,
     "ship": _d_ship, "folder": _d_folder, "save": _d_save, "image": _d_image,
+    "print": _d_print,
     "target": _d_target, "decks": _d_decks, "polygon": _d_polygon,
     "contour": _d_contour, "grid": _d_grid, "fit": _d_fit, "wand": _d_wand,
     "trash": _d_trash, "theme": _d_theme, "help": _d_help,

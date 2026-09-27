@@ -50,7 +50,7 @@ prend seulement une ligne de plus. Il se lit de gauche à droite :
 | Repère | Ce que c'est |
 |---|---|
 | La barre de menus | *Chargement*, *Journal*, *Navire*, *Exporter*, *Affichage*, *Aide* — voir [Les menus, un par un](menus.md) |
-| Les boutons, à gauche | les gestes du quotidien, écrits en toutes lettres : **Enregistrer** (le point), **Recalculer**, **Recadrer** (la vue), **Aide** |
+| Les boutons, à gauche | les gestes du quotidien, écrits en toutes lettres : **Enregistrer** (le point), **Exporter / imprimer**, **Recalculer**, **Recadrer** (la vue), **Aide** |
 | Le nom du navire | l'unique navire de cette installation |
 | La liste déroulante à côté | le **point du journal** sur lequel vous travaillez ; en changer demande confirmation ; la liste finit par *＋ Nouveau point…* |
 | Les trois boutons de vue | *Capacités*, *Chargement*, *Stabilité* — le journal, lui, s'ouvre par son menu ou `F2` |

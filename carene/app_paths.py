@@ -219,7 +219,7 @@ def installer_navire_exemple():
 def ship_folder() -> str:
     """Dossier de l'unique navire de cette installation.
 
-    Dans l'ordre : le dossier choisi (« Navire → Emplacement du navire… »),
+    Dans l'ordre : le dossier choisi (« Navire → Ouvrir un autre dossier de navire… »),
     puis `navire/` à côté de l'application, puis le navire livré dans
     `navires/` s'il est seul — c'est ainsi que le navire d'exemple s'ouvre au premier
     lancement sans rien configurer."""
@@ -277,7 +277,7 @@ def ship_folder() -> str:
         # livré plutôt que d'afficher « Aucun navire » sans explication
         DERNIER_MESSAGE = (f"Le dossier du navire configuré n'existe plus : {choisi}. "
                            "Le navire livré avec l'application est ouvert à la place "
-                           "(« Navire → Emplacement du navire… » pour en choisir un autre).")
+                           "(« Navire → Ouvrir un autre dossier de navire… » pour en choisir un autre).")
     livre = _navire_livre()
     if os.path.exists(os.path.join(DEFAULT_FOLDER, MANIFEST)) \
             or os.path.exists(os.path.join(DEFAULT_FOLDER, GEOMETRY)):

@@ -417,18 +417,19 @@ class MainWindow(QMainWindow):
             menu=m_ship,
             tip="Mettre en place ou déposer les épontilles amovibles — elles se "
                 "tracent dans « Créer ou modifier le navire… »")
-        # Exports : une fenêtre pour tout (rapport, capacités, chargement, plan,
-        # pointage, journal), voir carene.export_dialog et carene.rapports
-        act("Exporter…", self.open_exports, "Ctrl+E", menu=m_export,
-            tip="Rapport de stabilité, relevés, plan et feuilles de pointage (PDF, CSV)")
-        act("Plan de chargement pour les dockers…", self.open_plan_dockers,
-            menu=m_export,
-            tip="Une planche par cale, les colis en couleur de lot, sans numéro, "
-                "le code couleur en tableau FR / EN : la feuille qu'on tend au quai")
-        act("Aperçu du rapport de stabilité…", lambda: self.open_exports("apercu"),
-            menu=m_export, tip="Le rapport tel qu'il s'imprimera")
-        act("Imprimer le rapport de stabilité…", lambda: self.open_exports("imprimer"),
-            menu=m_export)
+        # EXPORTS ET IMPRESSION : UNE fenêtre pour tout (D-92). Le menu avait
+        # quatre entrées qui ouvraient toutes cette même fenêtre, réglée
+        # autrement ; la fenêtre coche, prévisualise, imprime et exporte toute
+        # la sélection : une entrée suffit, et un bouton au bandeau.
+        act("Exporter ou imprimer…", self.open_exports, "Ctrl+E", menu=m_export,
+            toolbar=True, icon="print", court="Exporter / imprimer",
+            tip="Rapport de stabilité, relevés, plans, feuilles de pointage : "
+                "cocher, prévisualiser, imprimer ou exporter (PDF, CSV)")
+        # Ctrl+P, le raccourci d'impression de tous les logiciels, ouvre la même
+        self.act_imprimer_bis = QAction("Exporter ou imprimer", self)
+        self.act_imprimer_bis.setShortcut(QKeySequence("Ctrl+P"))
+        self.act_imprimer_bis.triggered.connect(lambda *_a: self.open_exports())
+        self.addAction(self.act_imprimer_bis)
         m_ship.addSeparator()
         # La sauvegarde : un zip du dossier du navire (journal, plans, tout)
         # avec son manifeste, que toute version ultérieure relit (D-54).
@@ -442,8 +443,9 @@ class MainWindow(QMainWindow):
                 "d'une version passée ; le navire en place est mis de côté, "
                 "jamais effacé")
         m_ship.addSeparator()
-        act("Emplacement du navire…", self.change_ship_folder, menu=m_ship,
-            tip="Déplacer le dossier du navire")
+        act("Ouvrir un autre dossier de navire…", self.change_ship_folder, menu=m_ship,
+            tip="Choisir le dossier d'un navire (sur ce poste, une clé ou le "
+                "NAS) et l'ouvrir à la place de celui-ci — rien n'est déplacé")
         act("Supprimer le navire…", self.delete_ship, menu=m_ship,
             tip="L'application ne gère qu'un navire : le supprimer permet d'en "
                 "créer un autre")
@@ -485,15 +487,6 @@ class MainWindow(QMainWindow):
                                   check=True, menu=m_view)
         self.act_infobulles.setChecked(app_paths.infobulles_actives())
         FiltreInfobulles.installer(app_paths.infobulles_actives())
-        # LES MISES À JOUR (D-70) : vérifiées au lancement, sauf si on le
-        # décoche ici ; et à la demande, au menu Aide.
-        self.act_maj_lancement = act(
-            "Vérifier les mises à jour au lancement", self.regler_maj_lancement,
-            check=True, menu=m_view,
-            tip="Au démarrage, Carène demande au serveur des mises à jour s'il "
-                "existe une version plus récente — sans réseau, une ligne le dit "
-                "et c'est tout")
-        self.act_maj_lancement.setChecked(app_paths.verifier_maj_au_lancement())
         # L'aide en tête du menu Aide, et un « ? » dans la barre : c'est là
         # qu'on la cherche. Elle s'ouvre sur le sommaire ; le répartiteur et
         # l'éditeur de plans l'ouvrent, eux, sur leur propre page.
@@ -511,6 +504,15 @@ class MainWindow(QMainWindow):
             tip="Demander au serveur des mises à jour s'il existe une version "
                 "plus récente de Carène, et l'installer d'un clic — le navire "
                 "n'est jamais touché")
+        # LES MISES À JOUR (D-70), toutes au même endroit (D-92) : la case du
+        # lancement était seule dans Affichage, loin de ses deux sœurs
+        self.act_maj_lancement = act(
+            "Vérifier les mises à jour au lancement", self.regler_maj_lancement,
+            check=True, menu=m_help,
+            tip="Au démarrage, Carène demande au serveur des mises à jour s'il "
+                "existe une version plus récente — sans réseau, une ligne le dit "
+                "et c'est tout")
+        self.act_maj_lancement.setChecked(app_paths.verifier_maj_au_lancement())
         act("Serveur des mises à jour…", self.regler_serveur_maj, menu=m_help,
             tip="L'adresse du serveur des mises à jour, et l'identifiant et le "
                 "mot de passe de ce poste (gardés par Windows, jamais dans un fichier)")
@@ -775,14 +777,10 @@ class MainWindow(QMainWindow):
 
         # ---- DOSSIER : ce qu'on en sort
         groupe("DOSSIER")
-        bouton("Aperçu du rapport…", lambda: self.open_exports("apercu"),
-               "Le dossier de stabilité tel qu'il s'imprimera : douze sections, "
-               "capacités, cargaison, hydrostatiques, GZ, toutes les voilures.")
-        bouton("Imprimer…", lambda: self.open_exports("imprimer"),
-               "Imprimer le dossier de stabilité.")
-        bouton("Exporter…", self.open_exports,
-               "Rapport, relevés, plan et feuilles de pointage, en PDF et CSV "
-               "(Ctrl+E).")
+        bouton("Exporter ou imprimer…", self.open_exports,
+               "Le rapport de stabilité — douze sections, capacités, cargaison, "
+               "hydrostatiques, GZ, toutes les voilures — et les autres "
+               "documents : cocher, prévisualiser, imprimer, exporter (Ctrl+E).")
 
         # ---- ÉTAT : ce que ça vaut
         groupe("ÉTAT")
@@ -1046,7 +1044,7 @@ class MainWindow(QMainWindow):
         # autre poste l'a ouvert, on le saura — et on n'écrira pas
         self._prendre_verrou_navire(folder)
         if avis:
-            self._signaler("Emplacement du navire", avis)
+            self._signaler("Dossier du navire", avis)
         from .core.cargo_model import Catalogue
         # un geometrie.json ou un catalogue corrompu ne doit pas empêcher
         # l'application de démarrer : on ouvre sans, et on le dit
@@ -1138,8 +1136,8 @@ class MainWindow(QMainWindow):
             self, "Navire livré avec cette version",
             f"Le navire ouvert ({folder}) n'a pas de géométrie : ni cales tracées, ni plans "
             f"calés, ni catalogue du bord.\n\nLe dossier complet du navire d'exemple livré avec cette "
-            f"version est ici :\n{livre}\n\nL'ouvrir à la place ? (« Navire → Emplacement du "
-            "navire… » permet d'y revenir à tout moment.)",
+            f"version est ici :\n{livre}\n\nL'ouvrir à la place ? (« Navire → Ouvrir un "
+            "autre dossier de navire… » permet d'y revenir à tout moment.)",
             QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
         if rep == QMessageBox.StandardButton.Yes:
             app_paths.set_ship_folder(livre)
@@ -1615,12 +1613,12 @@ class MainWindow(QMainWindow):
         if not self._confirmer_abandon():
             return
         path = QFileDialog.getExistingDirectory(
-            self, "Emplacement du dossier du navire", app_paths.ship_folder())
+            self, "Choisir le dossier du navire à ouvrir", app_paths.ship_folder())
         if not path:
             return
         app_paths.set_ship_folder(path)
         self.open_ship()
-        self.statusBar().showMessage(f"Emplacement du navire : {path}", 8000)
+        self.statusBar().showMessage(f"Navire ouvert depuis : {path}", 8000)
 
     def exporter_sauvegarde(self, chemin=None):
         """*Navire › Exporter une sauvegarde du navire…* — voir

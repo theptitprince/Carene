@@ -1647,7 +1647,7 @@ class ShipEditorWindow(QMainWindow):
         choisi = (self.save_path
                   and os.path.abspath(self.save_path) != defaut)
         if choisi:
-            # emplacement explicitement désigné (« Emplacement du navire… ») :
+            # emplacement explicitement désigné (« Ouvrir un autre dossier de navire… ») :
             # on le respecte, même s'il est encore vide
             return self.save_path, False
         nom = nom_de_dossier(self.draft.identification.get("nom") or "")

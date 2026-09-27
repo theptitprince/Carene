@@ -13,7 +13,7 @@ stabilité**, rangé en quatre groupes — comme la barre de la vue Chargement :
 |---|---|
 | **RELEVÉ** | *Tirants d'eau relevés…* (`F7`, voir plus bas) ; à côté, le **poids fictif** en place s'il y en a un (« poids fictif +12,3 t à x = 34,20 m »), et le bouton *Retirer le poids fictif* — `Ctrl+Z` le remet |
 | **CALCUL** | la case *Navire lège inclus* (la même donnée que dans le récapitulatif de la vue Chargement : décochée, on ne regarde que ce qui est embarqué — jamais pour un verdict), *Recalculer* (`Ctrl+R`), *Ballastage…* (`F8`) |
-| **DOSSIER** | *Aperçu du rapport…*, *Imprimer…*, *Exporter…* (`Ctrl+E`) — voir [Les exports](exports.md) |
+| **DOSSIER** | *Exporter ou imprimer…* (`Ctrl+E`) : le rapport de stabilité et les autres documents, à prévisualiser, imprimer ou exporter — voir [Les exports](exports.md) |
 | **ÉTAT** | le compte des **critères tenus** sur ceux du dossier, pour la voilure choisie (« 8 / 9 critères tenus », en orange dès qu'un manque, avec le nombre de critères non évaluables) ; le détail est dans le tableau des critères |
 
 Sur une fenêtre étroite, les groupes passent à la ligne : rien ne disparaît.
