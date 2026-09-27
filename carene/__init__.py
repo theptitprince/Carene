@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 """Carène — logiciel de chargement & stabilité.
 
-ETDEL © 2026. Tous droits réservés.
+ETDEL © 2026. Carène est un logiciel libre : vous pouvez le redistribuer et le
+modifier selon les termes de la licence publique générale GNU (GPL), version 3
+ou (à votre choix) toute version ultérieure, telle que publiée par la Free
+Software Foundation. Il est distribué SANS AUCUNE GARANTIE, ni de qualité
+marchande, ni d'adéquation à un usage particulier. Voir le fichier LICENSE.
 """
 
-__version__ = "3.6.0"
+__version__ = "3.6.1"
 # LE DÉPÔT DES MISES À JOUR (D-70) : « propriétaire/dépôt » sur GitHub, celui
 # dont les *Releases* portent les zips de livraison. C'est une donnée du
 # LOGICIEL, pas du navire : elle vit ici, à côté de la version, et la clé
@@ -19,6 +23,8 @@ DEPOT_GITHUB = ""
 SERVEUR_MAJ = "http://theptitprince.fr/carene"
 __auteur__ = "Etienne DELON"
 __copyright__ = "ETDEL © 2026"
+# La licence (D-93) : GNU GPL v3 ou ultérieure — le texte est dans LICENSE
+__licence__ = "GPL-3.0-or-later"
 # La ligne qu'on colle partout où le logiciel se présente : fenêtre « À
 # propos », barre d'état au lancement, pied de page des rapports exportés.
 MENTION = f"Carène {__version__} — {__copyright__}"

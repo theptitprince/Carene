@@ -1,0 +1,43 @@
+name: Signaler un problème
+description: Un bogue, un chiffre douteux, une fenêtre qui se ferme.
+title: "Carène <version> — signalement"
+labels: ["signalement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Le plus simple : dans Carène, **Aide › Signaler un problème…** remplit ce formulaire pour vous et joint ce qui tournait.
+        **Ce dépôt est public** : ne collez ni le nom de votre navire, ni ses données, ni des chemins que vous ne voulez pas publier (Carène les masque par défaut).
+  - type: textarea
+    id: geste
+    attributes:
+      label: Ce que je faisais
+      placeholder: "Par exemple : j'ai posé une palette dans une cale, puis appuyé sur R"
+    validations:
+      required: true
+  - type: textarea
+    id: probleme
+    attributes:
+      label: Ce qui s'est passé
+      placeholder: "Par exemple : le colis a disparu et le verdict est passé à NON ÉVALUABLE"
+    validations:
+      required: true
+  - type: textarea
+    id: attendu
+    attributes:
+      label: Ce que j'attendais
+      placeholder: "Par exemple : qu'il tourne sur place, comme les autres"
+  - type: input
+    id: version
+    attributes:
+      label: Version de Carène
+      description: "Aide › À propos…"
+      placeholder: "3.6.0"
+    validations:
+      required: true
+  - type: textarea
+    id: technique
+    attributes:
+      label: Ce qui tournait, et le journal technique
+      description: "Collé depuis la fenêtre « Signaler un problème » (Copier le rapport), après relecture."
+      render: text

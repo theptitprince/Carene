@@ -1,9 +1,17 @@
-CARÈNE v3.6.0 — chargement et stabilité
+CARÈNE v3.6.1 — chargement et stabilité
 =======================================
-ETDEL © 2026. Tous droits réservés.
+ETDEL © 2026. Logiciel libre sous licence GNU GPL v3 ou ultérieure (fichier
+LICENSE), sans aucune garantie.
 Carène est une aide au chargement et à la stabilité : ni certifié, ni
 réglementaire. Le dossier de stabilité approuvé fait foi.
 
+
+NOUVEAU EN v3.6.1 : LA LICENCE (D-93)
+  Carène est un logiciel libre, sous licence GNU GPL version 3 ou
+  ultérieure (fichier LICENSE) : chacun peut l'utiliser, l'étudier, le
+  modifier et le redistribuer, à condition que les versions modifiées
+  restent libres, sous la même licence. Il est fourni sans aucune garantie.
+  Le code source : https://github.com/theptitprince/Carene
 
 NOUVEAU EN v3.6.0 : EXPORTER OU IMPRIMER, ET LE MÉNAGE DES MENUS (D-92)
   La fenêtre « Exporter ou imprimer » (Ctrl+E ou Ctrl+P, et un bouton dans
