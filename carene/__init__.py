@@ -4,7 +4,7 @@
 ETDEL © 2026. Tous droits réservés.
 """
 
-__version__ = "3.5.4"
+__version__ = "3.6.0"
 # LE DÉPÔT DES MISES À JOUR (D-70) : « propriétaire/dépôt » sur GitHub, celui
 # dont les *Releases* portent les zips de livraison. C'est une donnée du
 # LOGICIEL, pas du navire : elle vit ici, à côté de la version, et la clé

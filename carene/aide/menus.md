@@ -42,17 +42,14 @@ le *pourquoi* ; celle-ci dit *où c'est*.
 | **Épontilles…** | | mettre en place ou déposer les épontilles amovibles (elles se tracent dans l'éditeur de plans) |
 | **Exporter une sauvegarde du navire…** | | un zip du navire entier — tables, plans, journal, brouillons — à mettre sur une clé avant une mise à jour |
 | **Importer une sauvegarde…** | | reprendre un navire depuis une sauvegarde ; le navire en place est mis de côté, jamais effacé |
-| **Emplacement du navire…** | | déplacer le dossier du navire |
+| **Ouvrir un autre dossier de navire…** | | choisir le dossier d'un navire (sur ce poste, une clé, le NAS) et l'ouvrir à la place — rien n'est déplacé |
 | **Supprimer le navire…** | | Carène ne gère qu'un navire : le supprimer permet d'en créer un autre |
 
 ### Exporter — ce qu'on sort
 
 | Entrée | Touche | Ce qu'elle fait |
 |---|---|---|
-| **Exporter…** | `Ctrl+E` | la fenêtre unique des [exports](exports.md) : rapport, relevés, plan, pointages, journal ; l'aperçu et l'impression y portent sur le document coché |
-| **Plan de chargement pour les dockers…** | | la même fenêtre, ouverte sur cette seule planche |
-| **Aperçu du rapport de stabilité…** | | le rapport tel qu'il s'imprimera |
-| **Imprimer le rapport de stabilité…** | | vers une imprimante |
+| **Exporter ou imprimer…** | `Ctrl+E`, `Ctrl+P` | la fenêtre unique des [exports](exports.md) : cocher les documents (rapport, relevés, plans, pointages, planche des dockers, journal), puis les prévisualiser, les imprimer ou les exporter — toujours la sélection entière |
 
 ### Affichage
 
@@ -63,7 +60,6 @@ le *pourquoi* ; celle-ci dit *où c'est*.
 | **Recadrer la vue** | `F` | remet le cadrage et le zoom de la vue en cours, sans changer l'angle de l'iso |
 | **Calques du plan de chargement ▸** | | les mêmes cases que le bouton *Calques* de la barre du plan : ce qui se dessine, ce qui se signale |
 | **Infobulles d'aide** | | rallume les bulles au survol des boutons et des champs (éteintes par défaut ; celles du plan restent) |
-| **Vérifier les mises à jour au lancement** | | coché par défaut : au démarrage, Carène demande au serveur des mises à jour s'il existe une version plus récente — sans réseau, une ligne le dit, rien ne bloque |
 
 ### Aide
 
@@ -71,6 +67,7 @@ le *pourquoi* ; celle-ci dit *où c'est*.
 |---|---|---|
 | **Aide de Carène…** | `F1` | ce mode d'emploi, avec la recherche, le PDF et l'impression |
 | **Vérifier les mises à jour…** | | demande au serveur des mises à jour s'il existe une version plus récente, et l'installe d'un clic (téléchargement vérifié, ancienne version gardée, navire jamais touché) — voir [Réglages et dépannage](reglages.md) |
+| **Vérifier les mises à jour au lancement** | | coché par défaut : au démarrage, Carène demande au serveur des mises à jour s'il existe une version plus récente — sans réseau, une ligne le dit, rien ne bloque |
 | **Serveur des mises à jour…** | | l'adresse du serveur, et l'identifiant et le mot de passe de ce poste si le dossier est protégé — gardés par Windows, jamais dans un fichier |
 | **Signaler un problème…** | | trois questions, et Carène joint ce qui tournait et le journal technique ; il se dépose sur GitHub, dans les « Issues » de Carène — voir [Réglages et dépannage](reglages.md) |
 | **Journal technique…** | | ce que Carène a noté depuis son lancement — à joindre en cas de problème |
@@ -78,8 +75,8 @@ le *pourquoi* ; celle-ci dit *où c'est*.
 
 ## L'en-tête
 
-De gauche à droite : les boutons **Enregistrer**, **Recalculer**, **Recadrer**,
-**Aide** ; le **nom du navire** et la **liste des points** (elle finit par
+De gauche à droite : les boutons **Enregistrer**, **Exporter / imprimer**,
+**Recalculer**, **Recadrer**, **Aide** ; le **nom du navire** et la **liste des points** (elle finit par
 *＋ Nouveau point…*) ; les boutons de vue **Capacités**, **Chargement**,
 **Stabilité** ; les six chiffres **DÉPLACEMENT**, **TE ARRIÈRE**, **TE AVANT**,
 **ASSIETTE**, **GÎTE**, **GM CORRIGÉ** ; la **voilure** ; le **verdict**, et les
@@ -110,7 +107,7 @@ Tout est détaillé dans [Charger à la main](chargement.md).
 |---|---|
 | **RELEVÉ** | *Tirants d'eau relevés…*, le poids fictif en place, *Retirer le poids fictif* |
 | **CALCUL** | *Navire lège inclus*, *Recalculer*, *Ballastage…* |
-| **DOSSIER** | *Aperçu du rapport…*, *Imprimer…*, *Exporter…* |
+| **DOSSIER** | *Exporter ou imprimer…* |
 | **ÉTAT** | le compte des critères tenus |
 
 Voir [La stabilité](stabilite.md).

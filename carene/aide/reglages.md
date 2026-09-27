@@ -82,7 +82,7 @@ Trois endroits, à ne pas confondre.
 
 | Quoi | Où |
 |---|---|
-| **Le dossier du navire** | à côté de l'application, ou là où *Navire › Emplacement du navire…* l'a mis. Il contient tout ce qui décrit le navire, plus le journal des points et les exports |
+| **Le dossier du navire** | à côté de l'application, ou là où *Navire › Ouvrir un autre dossier de navire…* l'a désigné. Il contient tout ce qui décrit le navire, plus le journal des points et les exports |
 | **La configuration** | `carene.config.json`, à côté de l'application — ou dans le profil utilisateur si l'application est installée dans un dossier en lecture seule |
 | **Le journal technique** | `journaux/carene-AAAA-MM-JJ.log`, à côté de la configuration |
 | **Le navire d'exemple** | `navires/<NOM>.exemple/`, quand l'installation en livre un : copié en `navires/<NOM>/` au premier lancement d'une installation vierge, jamais ouvert tel quel, jamais recopié ensuite |
@@ -152,7 +152,7 @@ Trois façons de l'envoyer :
 
 ## Les mises à jour
 
-*Aide › Vérifier les mises à jour…*, et *Affichage › Vérifier les mises à
+*Aide › Vérifier les mises à jour…*, et *Aide › Vérifier les mises à
 jour au lancement* (coché par défaut).
 
 Carène demande au **serveur des mises à jour** s'il existe une version plus
@@ -224,7 +224,7 @@ logiciel, l'avertissement, et l'adresse où signaler un problème.
 
 Le dossier a été déplacé, renommé, ou il était sur une clé qui n'est plus là.
 
-1. *Navire › Emplacement du navire…* et désignez le bon dossier.
+1. *Navire › Ouvrir un autre dossier de navire…* et désignez le bon dossier.
 2. S'il a vraiment disparu, recopiez-le depuis la livraison ou depuis une
    sauvegarde : c'est un simple dossier, il se copie.
 3. Si Carène trouve **le même navire à côté de l'application**, il le propose

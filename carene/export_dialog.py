@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-"""La fenêtre « Exporter… » (Ctrl+E) : choisir quoi, choisir où, exporter.
+"""La fenêtre « Exporter ou imprimer… » (Ctrl+E, Ctrl+P) : choisir quoi, puis
+l'exporter (PDF, CSV), le prévisualiser ou l'imprimer — TOUTE la sélection,
+à la suite (D-92).
 
 Une seule fenêtre pour tous les exports plutôt qu'une entrée de menu par
 document : à l'escale on sort en général tout d'un coup — le rapport pour le
@@ -54,7 +56,7 @@ class ExportDialog(QDialog):
         # dernier dossier PROPOSÉ : sert à savoir si celui affiché a été choisi
         # à la main (voir `rafraichir`)
         self._dossier_propose = ""
-        self.setWindowTitle("Exporter…")
+        self.setWindowTitle("Exporter ou imprimer")
         self.setModal(False)
         self.resize(640, 460)
 
@@ -75,15 +77,27 @@ class ExportDialog(QDialog):
         # Le lot de l'escale, puis la planche du quai : elle s'exporte dans le
         # même dossier que le reste, mais elle ne fait pas partie du lot par
         # défaut de `rapports.tout_exporter` (voir EXPORT_DOCKERS).
-        # le dernier document DÉSIGNÉ : celui qu'on vient de cocher ou dont on
-        # a cliqué le libellé. C'est lui que l'aperçu montre (D-62).
-        self._vise = rapports.EXPORTS[0][0]
+        # L'APERÇU ET L'IMPRESSION PORTENT SUR TOUT CE QUI EST COCHÉ (D-92) :
+        # « imperçu doit donner un aperçu de ce qui est sélectionné, idem pour
+        # imprimer ». Plus de « document désigné » : la sélection, c'est les cases.
         for cle, libelle in list(rapports.EXPORTS) + [rapports.EXPORT_DOCKERS]:
             cb = QCheckBox(libelle)
             cb.setChecked(True)
-            cb.clicked.connect(lambda _v=False, c=cle: self._designer(c))
+            cb.toggled.connect(lambda _v=False: self._refresh_apercu())
             self.cases[cle] = cb
             root.addWidget(cb)
+        tout = QHBoxLayout()
+        tout.setContentsMargins(0, 0, 0, 0)
+        b_tout = QPushButton("Tout cocher")
+        b_tout.setProperty("ghost", "1")
+        b_tout.clicked.connect(lambda: self.cocher_tout(True))
+        b_rien = QPushButton("Tout décocher")
+        b_rien.setProperty("ghost", "1")
+        b_rien.clicked.connect(lambda: self.cocher_tout(False))
+        tout.addWidget(b_tout)
+        tout.addWidget(b_rien)
+        tout.addStretch(1)
+        root.addLayout(tout)
         self.cases[rapports.EXPORT_DOCKERS[0]].setToolTip(
             "Une planche par pont, à l'échelle : les colis en couleur de lot, "
             "numérotés, avec la légende des lots et le compte par cale. "
@@ -115,10 +129,9 @@ class ExportDialog(QDialog):
         root.addWidget(self.lbl_etat, 1)
 
         boutons = QHBoxLayout()
-        self.b_apercu = QPushButton("Aperçu du rapport…")
-        self.b_apercu.setToolTip("Le rapport de stabilité tel qu'il s'imprimera.")
+        self.b_apercu = QPushButton("Aperçu…")
         self.b_apercu.clicked.connect(self.apercu)
-        self.b_imprimer = QPushButton("Imprimer le rapport…")
+        self.b_imprimer = QPushButton("Imprimer…")
         self.b_imprimer.clicked.connect(self.imprimer)
         if not IMPRESSION_DISPONIBLE:
             for b in (self.b_apercu, self.b_imprimer):
@@ -128,7 +141,8 @@ class ExportDialog(QDialog):
         boutons.addWidget(self.b_apercu)
         boutons.addWidget(self.b_imprimer)
         boutons.addStretch(1)
-        self.b_exporter = QPushButton("Exporter")
+        self.b_exporter = QPushButton("Exporter (PDF, CSV)…")
+        self.b_exporter.setToolTip("Écrire les documents cochés dans un dossier.")
         self.b_exporter.setProperty("accent", "1")
         self.b_exporter.setDefault(True)
         self.b_exporter.clicked.connect(self.exporter)
@@ -167,19 +181,19 @@ class ExportDialog(QDialog):
         self._dossier_propose = defaut
         self._refresh_apercu()
 
-    def _designer(self, cle):
-        """Le document sur lequel portent l'aperçu et l'impression."""
-        self._vise = cle
+    def cocher_tout(self, coche=True):
+        for cb in self.cases.values():
+            cb.setChecked(bool(coche))
         self._refresh_apercu()
-        return cle
 
-    def document_vise(self):
-        """La clé du document aperçu : le dernier désigné s'il est coché,
-        sinon le premier coché — on n'aperçoit pas ce qu'on n'exporte pas."""
-        coches = [c for c, cb in self.cases.items() if cb.isChecked()]
-        if self._vise in coches:
-            return self._vise
-        return coches[0] if coches else None
+    def coches(self):
+        """Les documents cochés, dans l'ordre de la fenêtre."""
+        return [c for c, cb in self.cases.items() if cb.isChecked()]
+
+    def imprimables(self):
+        """Les documents cochés qui se peignent (aperçu, impression) : tous
+        sauf les CSV seuls, comme le journal."""
+        return [c for c in self.coches() if rapports.imprimable(self.win, c)]
 
     def _libelle_du(self, cle):
         for c, libelle in list(rapports.EXPORTS) + [rapports.EXPORT_DOCKERS]:
@@ -188,26 +202,28 @@ class ExportDialog(QDialog):
         return cle
 
     def _refresh_apercu(self):
-        """Les deux boutons nomment le document qu'ils vont montrer."""
+        """Les boutons disent sur combien de documents ils portent."""
         if not hasattr(self, "b_apercu"):
             return
-        cle = self.document_vise()
-        court = self._libelle_du(cle).split(" (")[0] if cle else ""
-        peut = bool(cle) and (cle in rapports.PEINTS
-                              or rapports.document(self.win, cle) is not None) \
-            if cle else False
-        self.b_apercu.setText(f"Aperçu : {court}…" if cle else "Aperçu…")
-        self.b_imprimer.setText(f"Imprimer : {court}…" if cle else "Imprimer…")
+        coches = self.coches()
+        n = len(self.imprimables())
+        csv = [self._libelle_du(c).split(" (")[0] for c in coches
+               if c not in self.imprimables()]
+        compte = f" ({n} document{'s' if n > 1 else ''})" if n else ""
+        self.b_apercu.setText(f"Aperçu{compte}…")
+        self.b_imprimer.setText(f"Imprimer{compte}…")
+        self.b_exporter.setEnabled(bool(coches))
         if not IMPRESSION_DISPONIBLE:
             return
-        self.b_apercu.setEnabled(bool(peut))
-        self.b_imprimer.setEnabled(bool(peut))
-        if cle and not peut:
-            self.b_apercu.setToolTip(
-                "Ce document n'est qu'un tableau CSV : il n'a pas d'aperçu "
-                "avant impression. Ouvrez-le dans un tableur après l'export.")
-        else:
-            self.b_apercu.setToolTip("Le document coché, tel qu'il s'imprimera.")
+        self.b_apercu.setEnabled(n > 0)
+        self.b_imprimer.setEnabled(n > 0)
+        aide = ("Les documents cochés, à la suite, tels qu'ils s'imprimeront."
+                if n else "Cochez au moins un document qui s'imprime.")
+        if csv:
+            aide += (" Non imprimé, ce n'est qu'un tableau CSV : "
+                     + ", ".join(csv) + " — il s'ouvre dans un tableur après l'export.")
+        self.b_apercu.setToolTip(aide)
+        self.b_imprimer.setToolTip(aide)
 
     def viser(self, cle):
         """Ouvre la fenêtre SUR UN document : lui seul reste coché.
@@ -223,7 +239,7 @@ class ExportDialog(QDialog):
         for autre, case in self.cases.items():
             case.setChecked(autre == cle)
         cb.setFocus()
-        self._designer(cle)
+        self._refresh_apercu()
         return cb
 
     # ------------------------------------------------------------- choix
@@ -300,47 +316,35 @@ class ExportDialog(QDialog):
         # dpi, et l'aperçu doit montrer exactement ce que donne le PDF
         return QPrinter(QPrinter.PrinterMode.ScreenResolution)
 
-    def apercu(self):
-        """Aperçu avant impression DU DOCUMENT COCHÉ (D-62).
+    def _documents_prets(self, cles, ctx):
+        """Les documents fabriqués UNE FOIS : l'aperçu redemande le dessin à
+        chaque page affichée et à chaque changement de zoom."""
+        return {c: rapports.document(self.win, c, ctx, self.port())
+                for c in cles if c not in rapports.PEINTS}
 
-        Le bord : « l'aperçu ne montre que l'aperçu de la stab, pas l'aperçu
-        de ce que l'on a sélectionné dans la liste. » C'est maintenant le
-        document désigné qui est peint, avec sa mise en page (A4 portrait,
-        paysage, ou A3 pour les deux planches)."""
+    def _titres(self, cles):
+        return ", ".join(self._libelle_du(c).split(" (")[0] for c in cles)
+
+    def apercu(self):
+        """Aperçu avant impression de TOUS LES DOCUMENTS COCHÉS, à la suite,
+        chacun dans sa mise en page (D-92) — les CSV seuls exceptés."""
         if not IMPRESSION_DISPONIBLE:
             return None
-        cle = self.document_vise()
-        if cle is None:
-            self.lbl_etat.setText("Rien n'est coché : rien à prévisualiser.")
+        cles = self.imprimables()
+        if not cles:
+            self.lbl_etat.setText("Rien à prévisualiser : cochez au moins un "
+                                  "document qui s'imprime (le journal n'est qu'un CSV).")
             return None
         ctx = rapports.Contexte(self.win)
-        # le document est fabriqué UNE FOIS : l'aperçu redemande le dessin à
-        # chaque page affichée et à chaque changement de zoom
-        peint = cle in rapports.PEINTS
-        doc = None if peint else rapports.document(self.win, cle, ctx, self.port())
-        if not peint and doc is None:
-            self.lbl_etat.setText(
-                f"« {self._libelle_du(cle)} » n'a pas d'aperçu : c'est un "
-                "tableau CSV, à ouvrir dans un tableur.")
-            return None
+        docs = self._documents_prets(cles, ctx)
         printer = self._imprimante()
-        titre = (self._libelle_du(cle).split(" (")[0])
-        if not peint:
-            _t, _html, _res, paysage = doc
-            printer.setPageOrientation(
-                QPageLayout.Orientation.Landscape if paysage
-                else QPageLayout.Orientation.Portrait)
         dlg = QPrintPreviewDialog(printer, self)
-        dlg.setWindowTitle(f"Aperçu — {titre}")
+        dlg.setWindowTitle("Aperçu — " + self._titres(cles))
         dlg.resize(900, 760)
+        port = self.port()
 
         def peindre(pr):
-            if peint:
-                rapports.peindre_document(self.win, cle, pr, ctx, self.port())
-            else:
-                t, html, res, paysage = doc
-                rapports._preparer(pr, paysage, f"{t} — {ctx.navire}")
-                rapports.peindre(pr, ctx, t, html, res)
+            rapports.peindre_documents(self.win, cles, pr, ctx, port, docs=docs)
 
         dlg.paintRequested.connect(peindre)
         self._apercu = dlg
@@ -351,23 +355,22 @@ class ExportDialog(QDialog):
         return dlg
 
     def imprimer(self):
-        """Imprime LE DOCUMENT COCHÉ, comme l'aperçu le montre (D-62)."""
+        """Imprime TOUS LES DOCUMENTS COCHÉS, à la suite, en un seul envoi,
+        comme l'aperçu les montre (D-92)."""
         if not IMPRESSION_DISPONIBLE:
-            return
-        cle = self.document_vise()
-        if cle is None:
-            self.lbl_etat.setText("Rien n'est coché : rien à imprimer.")
-            return
-        titre = self._libelle_du(cle).split(" (")[0]
+            return None
+        cles = self.imprimables()
+        if not cles:
+            self.lbl_etat.setText("Rien à imprimer : cochez au moins un document "
+                                  "qui s'imprime (le journal n'est qu'un CSV).")
+            return None
         printer = self._imprimante()
         dlg = QPrintDialog(printer, self)
-        dlg.setWindowTitle(f"Imprimer : {titre}")
+        dlg.setWindowTitle("Imprimer — " + self._titres(cles))
         if dlg.exec() != QDialog.DialogCode.Accepted:
-            return
-        peint = rapports.peindre_document(self.win, cle, printer, port=self.port())
-        if peint is None:
-            self.lbl_etat.setText(
-                f"« {self._libelle_du(cle)} » n'a pas d'impression : c'est un "
-                "tableau CSV, à ouvrir dans un tableur.")
-            return
-        self.win.statusBar().showMessage(f"{titre} envoyé à l'impression.", 6000)
+            return None
+        peints = rapports.peindre_documents(self.win, cles, printer, port=self.port())
+        titres = ", ".join(t for _c, t in peints)
+        self.lbl_etat.setText(f"Envoyé à l'impression : {titres}.")
+        self.win.statusBar().showMessage(f"Envoyé à l'impression : {titres}.", 6000)
+        return peints

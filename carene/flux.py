@@ -113,6 +113,19 @@ class FlowLayout(QLayout):
         x = zone.x()
         y = zone.y()
         haut_ligne = 0
+        # LES ÉLÉMENTS D'UNE LIGNE SONT CENTRÉS SUR SA HAUTEUR (D-92) : « dans
+        # le bandeau sup, peut-être centrer sur la hauteur les boutons ». Posés
+        # en haut de la ligne, les boutons de vue restaient collés au plafond
+        # à côté des chiffres sur deux étages. On place donc une ligne entière
+        # une fois sa hauteur connue.
+        ligne = []
+
+        def poser():
+            if essai:
+                return
+            for it, px, t in ligne:
+                it.setGeometry(QRect(QPoint(px, y + (haut_ligne - t.height()) // 2), t))
+
         for item in self._items:
             w = item.widget()
             if w is not None and w.isHidden():
@@ -130,15 +143,17 @@ class FlowLayout(QLayout):
             taille = item.sizeHint()
             suivant = x + taille.width() + he
             if suivant - he > zone.right() + 1 and haut_ligne > 0:
-                # la ligne est pleine : à la ligne
+                # la ligne est pleine : on la pose, et à la ligne
+                poser()
+                ligne = []
                 x = zone.x()
                 y = y + haut_ligne + ve
                 suivant = x + taille.width() + he
                 haut_ligne = 0
-            if not essai:
-                item.setGeometry(QRect(QPoint(x, y), taille))
+            ligne.append((item, x, taille))
             x = suivant
             haut_ligne = max(haut_ligne, taille.height())
+        poser()
         return y + haut_ligne - rect.y() + b
 
 

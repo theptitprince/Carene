@@ -1,9 +1,19 @@
-CARÈNE v3.5.4 — chargement et stabilité
+CARÈNE v3.6.0 — chargement et stabilité
 =======================================
 ETDEL © 2026. Tous droits réservés.
 Carène est une aide au chargement et à la stabilité : ni certifié, ni
 réglementaire. Le dossier de stabilité approuvé fait foi.
 
+
+NOUVEAU EN v3.6.0 : EXPORTER OU IMPRIMER, ET LE MÉNAGE DES MENUS (D-92)
+  La fenêtre « Exporter ou imprimer » (Ctrl+E ou Ctrl+P, et un bouton dans
+  le bandeau) : l'Aperçu et l'Impression portent désormais sur TOUS les
+  documents cochés, à la suite, chacun dans sa mise en page ; Tout cocher /
+  Tout décocher. Le menu Exporter n'a plus qu'une entrée, la vue Stabilité
+  un seul bouton de documents. « Emplacement du navire… » s'appelle
+  « Ouvrir un autre dossier de navire… ». La case « Vérifier les mises à
+  jour au lancement » rejoint le menu Aide. Les éléments du bandeau sont
+  centrés sur sa hauteur.
 
 NOUVEAU EN v3.5.4 : LES SIGNALEMENTS PASSENT PAR GITHUB (D-91)
   Aide > Signaler un problème… ouvre un nouveau signalement dans les

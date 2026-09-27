@@ -870,7 +870,7 @@ def _preparer(device, ctx, win):
         device.setCreator(MENTION)
 
 
-def peindre_sur(device, win, ctx=None):
+def peindre_sur(device, win, ctx=None, painter=None):
     """Peint le plan sur un périphérique déjà réglé. Rend le nombre de pages."""
     from . import rapports
     ctx = ctx or rapports.Contexte(win)
@@ -879,7 +879,11 @@ def peindre_sur(device, win, ctx=None):
     lots = {m.lot_id: m for m in (win.condition.manifeste or [])}
     couples = list(getattr(win, "table_couples", None) or [])
 
-    painter = QPainter(device)
+    # `painter` : un pinceau déjà ouvert, quand plusieurs documents se
+    # peignent à la suite (D-92) ; il n'est alors pas refermé ici
+    a_fermer = painter is None
+    if painter is None:
+        painter = QPainter(device)
     try:
         rect = device.pageLayout().paintRectPixels(device.resolution())
         page = {"largeur": rect.width(), "hauteur": rect.height(),
@@ -909,4 +913,5 @@ def peindre_sur(device, win, ctx=None):
                           deck, contour, cales, cap, colis, lots, ctx, ech)
         return n
     finally:
-        painter.end()
+        if a_fermer:
+            painter.end()
