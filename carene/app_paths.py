@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Emplacement du navire — l'application n'en gère qu'un seul.
 
 Carène est mono-navire par conception : une installation = un navire. Il n'y a

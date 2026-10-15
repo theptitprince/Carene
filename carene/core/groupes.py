@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Le regroupement des capacités par nature — « Fresh water », « Gas oil »…
 
 C'est une **donnée du navire**, pas une règle du logiciel : elle se règle à la

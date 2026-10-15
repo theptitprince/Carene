@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Scènes graphiques : plan calé (profil ou pont) avec grille, repères et objets.
 
 Ce module porte aussi ce qui, du côté Qt, est commun à toutes les vues de

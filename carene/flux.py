@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Une mise en page qui PASSE À LA LIGNE : le bandeau supérieur (D-67).
 
 Le bord (22/09/2026) : « si la fenêtre est trop petite, on perd une partie

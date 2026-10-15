@@ -4,7 +4,7 @@
 
 **An aid to loading and intact stability for cargo ships.**
 
-![Version](https://img.shields.io/badge/version-3.6.1-2ea44f)
+![Version](https://img.shields.io/badge/version-3.6.2-2ea44f)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![PySide6](https://img.shields.io/badge/PySide6-6.6%2B-41CD52?logo=qt&logoColor=white)
 ![NumPy](https://img.shields.io/badge/NumPy-1.24%2B-013243?logo=numpy&logoColor=white)
@@ -35,7 +35,7 @@ criteria the ship must meet.
 One installation handles a single ship. Carène is written in Python with
 PySide6; it is developed and tested on Windows, with Python 3.14.
 
-Current version: 3.6.1 — each version has its
+Current version: 3.6.2 — each version has its
 [release notes](https://github.com/theptitprince/Carene/releases), and
 the complete release history is in [LISEZMOI.txt](LISEZMOI.txt) (in French).
 
@@ -126,6 +126,7 @@ git clone https://github.com/theptitprince/Carene.git
 | `docs/serveur_mise_a_jour.md` | what Carène expects from the update server, and how to prepare it (in French) |
 | `.github/ISSUE_TEMPLATE/` | the form for reporting Issues, and the link to the help |
 | `LICENSE` | the text of the license (see [License](#10-license)) |
+| `NOTICE` | the additional license terms (section 7): the notice to keep |
 
 ### What Carène creates alongside itself
 
@@ -214,10 +215,10 @@ $env:CARENE_ONEFILE = "1"
 pyinstaller carene.spec
 ```
 
-The executable embeds the built-in help, the regulations and the list of
-ports, but **no ship data**: the ship stays next to the exe, never in the
-temporary folder. The target workstation needs neither Python nor any
-library.
+The executable embeds the built-in help, the regulations, the list of
+ports and the `LICENSE` and `NOTICE` files, but **no ship data**: the ship
+stays next to the exe, never in the temporary folder. The target
+workstation needs neither Python nor any library.
 
 ---
 
@@ -356,6 +357,11 @@ Reports and ideas are welcome in the
 [Issues](https://github.com/theptitprince/Carene/issues); for a
 change to the code, open an issue first to discuss it.
 
+A fork, like any modified version, keeps the notice
+"Carène, par ETDEL — https://github.com/theptitprince/Carene", states
+clearly that it has been modified and does not present itself as the
+original (see [Additional terms](#additional-terms-section-7)).
+
 ---
 
 ## 9. If something goes wrong
@@ -420,10 +426,28 @@ notice. The program is provided **without any warranty**: Carène helps you
 prepare the loading; it replaces neither the ship's approved stability
 booklet nor the master's judgment.
 
+### Additional terms (section 7)
+
+The GPL v3 lets the author add a few terms (section 7). Carène's are in the
+[`NOTICE`](NOTICE) file, in French and in English:
+
+- **Attribution**: every copy or modified version must keep, visible to the user (an "About"
+  window or equivalent) and in its documentation, the notice:
+
+  > Carène, par ETDEL — https://github.com/theptitprince/Carene
+
+  A modified version may prefix it with "D'après" (or "Based on") and add its own credits,
+  but may neither remove nor hide it.
+- **Origin**: a modified version must state clearly that it has been modified, and must not
+  present itself as the original or as endorsed by ETDEL.
+
+In Carène, this notice is shown in the *Aide › À propos…* (Help › About…) window.
+
 The full text of the license is in the [`LICENSE`](LICENSE) file of the
-repository and at <https://www.gnu.org/licenses/gpl-3.0.html>. The header of
-`carene/__init__.py` carries the license notice, which the
-*Aide › À propos…* (Help › About…) window repeats.
+repository and at <https://www.gnu.org/licenses/gpl-3.0.html>. Each Python
+source file, as well as `carene.spec`, carries a header that points to
+`LICENSE` and `NOTICE`, and the *Aide › À propos…* (Help › About…) window
+repeats the license and its terms.
 
 ---
 

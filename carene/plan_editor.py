@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Éditeur de plans : vues (profil et ponts), calage, contours, capacités.
 
 C'est une activité de CRÉATION du navire : cette fenêtre est ouverte depuis la
@@ -5210,6 +5213,9 @@ class PlanEditorWindow(QMainWindow):
         self.iso_view.fit()
 
     def about(self):
+        # D-94 : les mêmes mentions légales que l'« À propos » de la fenêtre
+        # principale — la mention à conserver, la licence et le NOTICE.
+        from . import mentions_legales_html
         QMessageBox.information(
             self, "À propos de Carène",
             "<b>Carène</b> — création du fichier navire<br>"
@@ -5217,7 +5223,8 @@ class PlanEditorWindow(QMainWindow):
             "Les plans importés (image ou PDF) servent au repérage et à la "
             "saisie ; les volumes et centres proviennent toujours des tables "
             "de jauge du dossier de stabilité approuvé.<br><br>"
-            "<b>F1</b> ouvre l'assistant guidé.")
+            "<b>F1</b> ouvre l'assistant guidé.<br><br>"
+            f"{mentions_legales_html()}")
 
     def showEvent(self, event):
         """Premier affichage : cadrer les vues une fois la mise en page connue."""

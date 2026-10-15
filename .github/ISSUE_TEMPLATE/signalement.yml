@@ -32,7 +32,7 @@ body:
     attributes:
       label: Version de Carène
       description: "Aide › À propos…"
-      placeholder: "3.6.0"
+      placeholder: "3.6.2"
     validations:
       required: true
   - type: textarea

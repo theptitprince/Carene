@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Les deux gestes de sauvegarde, depuis la fenêtre principale.
 
 *Navire › Exporter une sauvegarde du navire…* écrit le zip ; *Navire ›

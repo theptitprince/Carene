@@ -216,7 +216,22 @@ même vers une imprimante. Le nom proposé porte la version :
 ## À propos
 
 *Aide › À propos…* donne la version de Carène, le rappel de ce qu'est le
-logiciel, l'avertissement, et l'adresse où signaler un problème.
+logiciel, l'avertissement, l'adresse où signaler un problème, et les
+mentions légales.
+
+Carène est un **logiciel libre**, sous licence GNU GPL version 3 ou
+ultérieure, avec des **conditions additionnelles** (article 7 de la licence),
+et il est fourni **sans aucune garantie**. La fenêtre dit où lire la licence
+(fichier `LICENSE`, ou https://www.gnu.org/licenses/gpl-3.0.html) et ces
+conditions (fichier `NOTICE`, ou sur le dépôt GitHub). Elle porte aussi la
+mention que toute copie ou version modifiée de Carène doit garder, visible
+pour l'utilisateur et dans sa documentation :
+
+> Carène, par ETDEL — https://github.com/theptitprince/Carene
+
+Une version modifiée doit le dire clairement, et ne pas se présenter comme
+l'original. Dans l'éditeur de plans, *Aide › À propos…* donne les mêmes
+mentions légales.
 
 ## Dépannage
 

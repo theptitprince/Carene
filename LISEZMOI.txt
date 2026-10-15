@@ -1,10 +1,27 @@
-CARÈNE v3.6.1 — chargement et stabilité
+CARÈNE v3.6.2 — chargement et stabilité
 =======================================
 ETDEL © 2026. Logiciel libre sous licence GNU GPL v3 ou ultérieure (fichier
-LICENSE), sans aucune garantie.
+LICENSE), avec conditions additionnelles (article 7, fichier NOTICE), sans
+aucune garantie. Mention à conserver dans toute copie :
+    Carène, par ETDEL — https://github.com/theptitprince/Carene
 Carène est une aide au chargement et à la stabilité : ni certifié, ni
 réglementaire. Le dossier de stabilité approuvé fait foi.
 
+
+NOUVEAU EN v3.6.2 : LA MENTION ETDEL (D-94)
+  La licence ne change pas (GNU GPL version 3 ou ultérieure) ; elle porte
+  désormais des conditions additionnelles (article 7 b et c), dans le
+  nouveau fichier NOTICE, en français et en anglais. Toute copie ou version
+  modifiée de Carène garde, visible pour l'utilisateur et dans sa
+  documentation, la mention :
+      Carène, par ETDEL — https://github.com/theptitprince/Carene
+  Une version modifiée doit le dire et ne pas se présenter comme
+  l'original. Aide > À propos…, et l'« À propos » de l'éditeur de plans,
+  donnent cette mention, le copyright, la licence, l'absence de garantie,
+  et où lire la licence et ses conditions (fichiers LICENSE et NOTICE, ou
+  en ligne). Chaque fichier source Python, ainsi que carene.spec, porte un
+  en-tête qui y renvoie, et l'exécutable embarque LICENSE et NOTICE.
+  Rien à copier dans votre navire.
 
 NOUVEAU EN v3.6.1 : LA LICENCE (D-93)
   Carène est un logiciel libre, sous licence GNU GPL version 3 ou

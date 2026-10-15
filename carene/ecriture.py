@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """L'écriture protégée des fichiers du bord (2.21.0, D-77).
 
 Un point du journal, `navire.json`, `geometrie.json`, le catalogue : tout cela

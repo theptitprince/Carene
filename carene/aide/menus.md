@@ -71,7 +71,7 @@ le *pourquoi* ; celle-ci dit *où c'est*.
 | **Serveur des mises à jour…** | | l'adresse du serveur, et l'identifiant et le mot de passe de ce poste si le dossier est protégé — gardés par Windows, jamais dans un fichier |
 | **Signaler un problème…** | | trois questions, et Carène joint ce qui tournait et le journal technique ; il se dépose sur GitHub, dans les « Issues » de Carène — voir [Réglages et dépannage](reglages.md) |
 | **Journal technique…** | | ce que Carène a noté depuis son lancement — à joindre en cas de problème |
-| **À propos…** | | la version, l'avertissement, l'adresse de contact |
+| **À propos…** | | la version, l'avertissement, l'adresse de contact, et les mentions légales : licence GNU GPL v3 ou ultérieure avec conditions additionnelles (fichier `NOTICE`), sans aucune garantie, et la mention « Carène, par ETDEL — https://github.com/theptitprince/Carene » à garder dans toute copie — voir [Réglages et dépannage](reglages.md) |
 
 ## L'en-tête
 

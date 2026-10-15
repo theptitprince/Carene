@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Critère météo (vent de travers + roulis), IMO IS Code 2008 Part A §2.3.
 
 Les tables numériques ci-dessous (X1, X2, k, s) et la pression de vent P sont

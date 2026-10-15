@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """« Signaler un problème… » : trois questions, et le rapport part (D-63).
 
 Le bord veut que les ennuis remontent. Pour cela il faut que signaler coûte

@@ -1,0 +1,85 @@
+Carène
+Copyright (C) 2026 ETDEL — https://github.com/theptitprince/Carene
+
+Ce programme est un logiciel libre : vous pouvez le redistribuer et le modifier selon les
+termes de la GNU General Public License publiée par la Free Software Foundation, version 3
+de la licence ou (à votre choix) toute version ultérieure (GPL-3.0-or-later). Il est fourni
+SANS AUCUNE GARANTIE. Le texte de la licence est dans le fichier LICENSE.
+
+Conditions additionnelles (article 7 de la GPL v3)
+--------------------------------------------------
+Ces conditions s'appliquent au travail d'ETDEL contenu dans ce dépôt, à l'exception des
+éléments tiers listés plus bas.
+
+1. Attribution (article 7 b). Toute copie et toute version modifiée, en tout ou en partie,
+   doit conserver, intacte et visible, la mention :
+
+       Carène, par ETDEL — https://github.com/theptitprince/Carene
+
+   a) dans les mentions légales qu'elle affiche à l'utilisateur (fenêtre « À propos » ou
+      écran équivalent ; dans Carène : fenêtre Aide › À propos…, et l'« À propos » de
+      l'éditeur de plans) ;
+   b) dans sa documentation (README ou équivalent).
+   Elle doit aussi conserver les mentions d'auteur placées en tête des fichiers source.
+   Une version modifiée peut faire précéder la mention de « D'après » et ajouter ses propres
+   crédits, mais ne peut ni la retirer ni la masquer.
+
+2. Origine (article 7 c). Une version modifiée doit indiquer clairement qu'elle est modifiée.
+   Elle ne doit se présenter ni comme la version originale, ni comme approuvée par ETDEL.
+
+Données tierces
+---------------
+Ces conditions ne portent pas sur les éléments suivants, qui ne sont pas le travail d'ETDEL :
+
+- carene/donnees/*.csv.gz : un extrait de la liste UN/LOCODE 2023-1 (ports maritimes et
+  fluviaux, et liste des pays) de la Commission économique des Nations unies pour l'Europe
+  (CEE-ONU / UNECE), qui reste sous les conditions de la CEE-ONU ;
+- les textes réglementaires repris dans carene/reglements/ : les critères qu'ETDEL y a codés
+  reprennent des textes de l'OMI et du Bureau Veritas, qui restent ceux de leurs auteurs.
+
+Les bibliothèques dont Carène se sert (PySide6/Qt, NumPy, PyMuPDF, ezdxf, openpyxl) ne sont
+pas dans ce dépôt et gardent leurs propres licences.
+
+English translation (the French text above prevails)
+====================================================
+
+Carène
+Copyright (C) 2026 ETDEL — https://github.com/theptitprince/Carene
+
+This program is free software: you can redistribute it and/or modify it under the terms of
+the GNU General Public License as published by the Free Software Foundation, either version 3
+of the License, or (at your option) any later version (GPL-3.0-or-later). It comes WITHOUT
+ANY WARRANTY. The license text is in the LICENSE file.
+
+Additional terms (section 7 of the GPL v3)
+------------------------------------------
+These terms apply to ETDEL's work contained in this repository, except the third-party
+material listed below.
+
+1. Attribution (section 7 b). Every copy and every modified version, in whole or in part,
+   must keep, intact and visible, the notice:
+
+       Carène, par ETDEL — https://github.com/theptitprince/Carene
+
+   a) in the legal notices it displays to the user (an "About" window or equivalent screen;
+      in Carène: the Aide › À propos… window, and the plan editor's « À propos »);
+   b) in its documentation (README or equivalent).
+   It must also keep the author notices at the top of the source files.
+   A modified version may prefix the notice with "D'après" (or "Based on") and add its own
+   credits, but may neither remove nor hide it.
+
+2. Origin (section 7 c). A modified version must state clearly that it has been modified.
+   It must not present itself as the original version, nor as endorsed by ETDEL.
+
+Third-party data
+----------------
+These terms do not cover the following material, which is not ETDEL's work:
+
+- carene/donnees/*.csv.gz: an extract of the UN/LOCODE 2023-1 code list (sea and river
+  ports, and the list of countries) of the United Nations Economic Commission for Europe
+  (UNECE / CEE-ONU), which remains under UNECE's terms;
+- the regulatory texts restated in carene/reglements/: the criteria ETDEL encoded there
+  restate texts of the IMO and of Bureau Veritas, which remain those of their authors.
+
+The libraries Carène uses (PySide6/Qt, NumPy, PyMuPDF, ezdxf, openpyxl) are not in this
+repository and keep their own licenses.

@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Les contrôles de cohérence des tables d'un navire (3.2.0, D-82) — sans Qt.
 
 Le bord (24/09/2026), sur la revue : « pour le contrôle de cohérence des

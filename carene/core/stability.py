@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Courbe de redressement (GZ), corrections de carène liquide, aires sous la
 courbe, angle d'envahissement — aucune donnée navire codée en dur : tout vient
 de l'objet Navire (tables KN, points d'envahissement, repères de tirants d'eau

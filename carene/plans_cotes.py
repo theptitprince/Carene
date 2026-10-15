@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Plans cotés des cales — la planche qu'on emporte à bord pour vérifier.
 
 Une page par cale, à l'échelle, avec **les cotes que le logiciel utilise

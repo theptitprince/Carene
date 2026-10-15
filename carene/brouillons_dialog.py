@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Les brouillons du plan de chargement — plusieurs plans, un seul validé.
 
 Avant une escale on essaie : le lourd à fond de cale, la reprise du plan de

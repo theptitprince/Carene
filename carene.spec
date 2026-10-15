@@ -1,4 +1,7 @@
 # -*- mode: python ; coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Recette PyInstaller de Carène — `pyinstaller carene.spec` depuis la
 racine (PyInstaller installé : `pip install pyinstaller`).
 
@@ -102,9 +105,13 @@ a = Analysis(
     # ces deux lignes, l'exécutable démarre très bien et le champ « Escale » ne
     # propose plus que les ports du navire — l'absence des fichiers est avalée
     # en silence (OSError), personne ne s'aperçoit de rien.
+    # LICENSE et NOTICE (D-94) : la licence et ses conditions additionnelles
+    # (article 7) voyagent avec l'exécutable, à la racine de ses données.
     datas=_traduction_qt() + _aide() + _reglements() + [
         ("carene/donnees/ports_unlocode.csv.gz", "carene/donnees"),
         ("carene/donnees/pays_unlocode.csv.gz", "carene/donnees"),
+        ("LICENSE", "."),
+        ("NOTICE", "."),
     ],
     # pymupdf charge sa bibliothèque native à l'import ; PyInstaller la voit,
     # mais on l'inscrit pour que l'absence du module saute aux yeux à la

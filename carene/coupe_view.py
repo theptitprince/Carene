@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """La coupe transversale au repère — maquette C-A.
 
 Au couple choisi sur le plan de pont (le trait rouge, qu'on glisse), on voit

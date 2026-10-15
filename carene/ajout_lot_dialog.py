@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Composer un lot du manifeste : une seule fenêtre, tout sous les yeux.
 
 Avant, ajouter « 150 palettes de rhum » demandait deux boîtes enchaînées — une

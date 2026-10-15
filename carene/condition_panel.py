@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Panneau « Condition » : le récapitulatif de ce qui est embarqué.
 
 Les deux saisies ont leur propre onglet au centre — le relevé des liquides et

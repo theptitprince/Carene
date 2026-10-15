@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Le relevé des capacités, en tableau groupé — façon « weight list » LOCOPIAS.
 
 Un seul tableau : celui de la vue Capacités, à côté de la vue de situation.

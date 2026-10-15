@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Critères réglementaires généraux (IMO IS Code 2008 §2.2, BV NR500) appliqués
 à une courbe GZ déjà calculée. Les seuils numériques sont lus dans navire.json
 (section "criteres") — pas codés en dur ici — puisqu'un autre navire pourrait

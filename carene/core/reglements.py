@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """La bibliothèque des réglementations de stabilité (3.0.0, D-79) — sans Qt.
 
 Le bord (24/09/2026) : « Tous les critères doivent être dispo dans le

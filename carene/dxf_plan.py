@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Fond de plan DXF : lecture des traits, calques, rendu en image, accroche.
 
 Le DXF est le **format pivot** qu'on demande au chantier (décision D-9) : il

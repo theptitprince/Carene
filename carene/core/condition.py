@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Modélisation d'une condition de chargement : lège + éléments de cargaison +
 remplissage des capacités, agrégés en un poids total / centre de gravité. Ne
 contient aucune donnée navire : les masses/centres viennent du Navire chargé

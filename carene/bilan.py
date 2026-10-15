@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Le bilan des poids, poste par poste — le tableau qu'on trouve dans tout
 recueil de stabilité et dans LOCOPIAS : chaque ligne avec son poids, ses trois
 centres et sa carène liquide ; des sous-totaux par groupe ; le total qui

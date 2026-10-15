@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Les sommets accrochables d'un plan, rangés AVEC le navire.
 
 Le curseur du décalquage s'accroche aux traits du plan de fond quand celui-ci

@@ -4,7 +4,7 @@
 
 **Aide au chargement et à la stabilité à l'état intact des navires de charge.**
 
-![Version](https://img.shields.io/badge/version-3.6.1-2ea44f)
+![Version](https://img.shields.io/badge/version-3.6.2-2ea44f)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![PySide6](https://img.shields.io/badge/PySide6-6.6%2B-41CD52?logo=qt&logoColor=white)
 ![NumPy](https://img.shields.io/badge/NumPy-1.24%2B-013243?logo=numpy&logoColor=white)
@@ -33,7 +33,7 @@ son navire doit tenir.
 Une installation gère un seul navire. Carène est écrite en Python avec
 PySide6 ; elle est développée et testée sous Windows, avec Python 3.14.
 
-Version actuelle : 3.6.1 — chaque version a sa
+Version actuelle : 3.6.2 — chaque version a sa
 [note de version](https://github.com/theptitprince/Carene/releases), et
 l'historique complet des livraisons est dans [LISEZMOI.txt](LISEZMOI.txt).
 
@@ -124,6 +124,7 @@ git clone https://github.com/theptitprince/Carene.git
 | `docs/serveur_mise_a_jour.md` | ce que Carène attend du serveur des mises à jour, et comment le préparer |
 | `.github/ISSUE_TEMPLATE/` | le formulaire de signalement des Issues, et le lien vers l'aide |
 | `LICENSE` | le texte de la licence (voir [Licence](#10-licence)) |
+| `NOTICE` | les conditions additionnelles de la licence (article 7) : la mention à conserver |
 
 ### Ce que Carène crée à côté d'elle
 
@@ -209,10 +210,11 @@ $env:CARENE_ONEFILE = "1"
 pyinstaller carene.spec
 ```
 
-L'exécutable embarque l'aide intégrée, les réglementations et la liste des
-ports, mais **aucune donnée de navire** : le navire reste à côté de l'exe,
-jamais dans le dossier temporaire. Le poste de destination n'a besoin ni de
-Python ni d'aucune bibliothèque.
+L'exécutable embarque l'aide intégrée, les réglementations, la liste des
+ports et les fichiers `LICENSE` et `NOTICE`, mais **aucune donnée de
+navire** : le navire reste à côté de l'exe, jamais dans le dossier
+temporaire. Le poste de destination n'a besoin ni de Python ni d'aucune
+bibliothèque.
 
 ---
 
@@ -349,6 +351,11 @@ Les signalements et les idées sont les bienvenus dans les
 [Issues](https://github.com/theptitprince/Carene/issues) ; pour une
 modification du code, ouvrez d'abord une issue pour en parler.
 
+Un fork, comme toute version modifiée, garde la mention
+« Carène, par ETDEL — https://github.com/theptitprince/Carene », dit
+clairement qu'il est modifié et ne se présente pas comme l'original (voir
+[Conditions additionnelles](#conditions-additionnelles-article-7)).
+
 ---
 
 ## 9. En cas de souci
@@ -411,10 +418,28 @@ mention de copyright. Le programme est fourni **sans aucune garantie** :
 Carène vous aide à préparer le chargement, elle ne remplace ni le dossier de
 stabilité approuvé du navire ni l'appréciation du capitaine.
 
+### Conditions additionnelles (article 7)
+
+La GPL v3 permet à l'auteur d'ajouter quelques conditions (article 7). Celles de Carène sont dans
+le fichier [`NOTICE`](NOTICE), en français et en anglais :
+
+- **Attribution** : toute copie ou version modifiée doit garder, visible pour l'utilisateur
+  (fenêtre « À propos » ou équivalent) et dans sa documentation, la mention :
+
+  > Carène, par ETDEL — https://github.com/theptitprince/Carene
+
+  Une version modifiée peut la faire précéder de « D'après » et ajouter ses propres crédits,
+  sans la retirer ni la masquer.
+- **Origine** : une version modifiée doit dire clairement qu'elle est modifiée, et ne doit se
+  présenter ni comme l'original, ni comme approuvée par ETDEL.
+
+Dans Carène, cette mention s'affiche dans la fenêtre *Aide › À propos…*.
+
 Le texte intégral de la licence est dans le fichier [`LICENSE`](LICENSE) du
-dépôt et sur <https://www.gnu.org/licenses/gpl-3.0.html>. L'en-tête de
-`carene/__init__.py` porte la mention de licence, que la fenêtre
-*Aide › À propos…* rappelle.
+dépôt et sur <https://www.gnu.org/licenses/gpl-3.0.html>. Chaque fichier
+source Python, ainsi que `carene.spec`, porte un en-tête qui renvoie à
+`LICENSE` et `NOTICE`, et la fenêtre *Aide › À propos…* rappelle la licence
+et ses conditions.
 
 ---
 

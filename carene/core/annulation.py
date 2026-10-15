@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Annuler / refaire le chargement du point : une pile d'ÉTATS (D-61).
 
 Le bord (22/09/2026) : « on devrait prévoir un Ctrl+Z… » L'éditeur de plans en

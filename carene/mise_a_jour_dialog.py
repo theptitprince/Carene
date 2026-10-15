@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """La fenêtre des mises à jour (D-70) : ce qu'il y a de neuf, et le bouton.
 Et celle du serveur des mises à jour (D-85) : son adresse, l'identifiant et
 le mot de passe du poste.

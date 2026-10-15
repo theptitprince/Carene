@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """La situation du navire en un coup d'œil : profil et coupe au maître.
 
 Ce que LOCOPIAS montre en tête de ses résultats — la silhouette avec la

@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Signaler un problème : le rapport que le bord envoie, prêt à lire (D-63).
 
 Le bord (22/09/2026) : « un truc pour faire remonter les bugs (qui arrivent

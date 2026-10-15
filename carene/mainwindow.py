@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Fenêtre principale : le poste de travail chargement & stabilité.
 
 Elle ne contient plus aucun outil de création : le calage des plans et l'import
@@ -3014,7 +3017,7 @@ class MainWindow(QMainWindow):
         return dlg
 
     def about(self):
-        from . import AVERTISSEMENT, __copyright__, __version__
+        from . import AVERTISSEMENT, __version__, mentions_legales_html
         from .core.rapport_bug import CONTACT
         QMessageBox.about(
             self, "À propos de Carène",
@@ -3025,15 +3028,17 @@ class MainWindow(QMainWindow):
             "<i>Navire › Créer ou modifier le navire…</i><br><br>"
             "Un problème ? <i>Aide › Signaler un problème…</i> — sur GitHub : "
             f"<a href='{CONTACT}'>{CONTACT}</a><br><br>"
-            f"<span style='color:#888'>{__copyright__} — logiciel libre sous licence GNU GPL v3 ou ultérieure, sans aucune garantie."
-            "<br>Le code source : github.com/theptitprince/Carene<br><br>"
-            f"{AVERTISSEMENT}</span>")
+            # D-94 : les mentions légales — la mention à conserver (GPL v3,
+            # article 7 b et c), la licence, où lire la licence et le NOTICE.
+            # Le même bloc que l'« À propos » de l'éditeur de plans.
+            f"{mentions_legales_html()}<br><br>"
+            f"<span style='color:#888'>{AVERTISSEMENT}</span>")
 
 
 def avertir_au_lancement(win):
     """Le rappel de ce qu'est le logiciel, une fois par lancement — jamais
     dans les tests ni les captures (voir main())."""
-    from . import AVERTISSEMENT, MENTION
+    from . import ATTRIBUTION, AVERTISSEMENT, MENTION
     from .core.rapport_bug import CONTACT
     QMessageBox.information(
         win, "Carène — avertissement",
@@ -3047,7 +3052,7 @@ def avertir_au_lancement(win):
         "Dites-le : <i>Aide › Signaler un problème…</i> prépare le message, "
         f"avec ce qui tournait et le journal technique, et l'ouvre sur GitHub : "
         f"<a href='{CONTACT}'>{CONTACT}</a>.<br><br>"
-        f"<span style='color:#888'>{MENTION}</span>")
+        f"<span style='color:#888'>{MENTION}<br>{ATTRIBUTION}</span>")
 
 
 class FiltreInfobulles(QObject):

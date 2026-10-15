@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Choisir une escale : le champ unique, partout où l'on demande un port.
 
 Le bord tapait « Pointe-à-Pitre » à la main dans chaque ligne de manifeste et

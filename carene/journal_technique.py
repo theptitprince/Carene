@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+# Carène, par ETDEL — https://github.com/theptitprince/Carene
+# Copyright © 2026 ETDEL — GPL-3.0-or-later, avec conditions additionnelles
+# (article 7) : voir les fichiers LICENSE et NOTICE.
 """Le journal technique : ce que Carène a fait, et ce qui lui est arrivé.
 
 Carène part en essai à bord. Quand quelque chose se passe mal, la personne
